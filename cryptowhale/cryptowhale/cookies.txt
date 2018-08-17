@@ -1,0 +1,6 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+cryptowhale.biz	TRUE	/	FALSE	1999999999	CameFrom	deleted
+cryptowhale.biz	TRUE	/	FALSE	1999999999	PHPSESSID	m6g5n7si1o851vmctpo35sc021
+.momentjs.com	TRUE	/	FALSE	1999999999	__cfduid	d46c16bc4fe4661029e05be73b2c35c631522934263
+

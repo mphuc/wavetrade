@@ -1,0 +1,68 @@
+<section class="account-list" style="margin-top: 30px">
+   <div class="container">
+      <div class="box">
+         <div class="box-title">
+            Internal Transfer
+         </div>
+         <div class="box-body">
+            <form action="/account/useraccount/interaltrabsfer" method="POST" id="interaltrabsfer">
+              
+               <div class="form-horizontal">
+                  <div class="row">
+                     <div class="col-md-offset-2 col-md-4">
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label class="control-label col-md-2" for="FromAccountID">From Account</label>
+                     <div class="col-md-4">
+                       
+                        <select class="form-control" name="FromAccountID">
+                           <option value="0">Wallet ({{formatusd user.balance}})</option>
+                           {{#each user_child}}
+                              <option  value="{{this.account_id}}">{{this.account_id}} ({{formatusd this.balance}})</option>
+                           {{/each}}
+                        </select>
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label class="control-label col-md-2" for="ToAccountID">To Account</label>
+                     <div class="col-md-4">
+                        <select class="form-control" name="ToAccountID">
+                           <option value="0">Wallet ({{formatusd user.balance}})</option>
+                           {{#each user_child}}
+                              <option 
+                                 {{#if_eq this.account_id AccountID }}
+                                 selected="selected" 
+                                 {{/if_eq}}
+                               value="{{this.account_id}}">{{this.account_id}}  ({{formatusd this.balance}})</option>
+                           {{/each}}
+                        </select>
+                       
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label class="control-label col-md-2" for="Amount">Amount</label>
+                     <div class="col-md-4">
+                        <input class="form-control text-box single-line" name="amount" type="text" value="0">
+                        
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="col-md-7">
+                     <div class="alert alert-danger alert-dismissable" style="display: none;"></div>
+                  </div>
+                  <div class="form-group">
+                     <div class="col-md-offset-2 col-md-4">
+                        <button type="submit" class="btn btn-primary has-spinner btn-submit-exchain"  style="">
+                         <span class="spinner"><i style="display: none;" class="fa fa-spinner fa-pulse"></i></span>
+                         <confirm>Transfer</confirm>
+                        </button>
+                        <a class="btn btn-primary font-bold" href="/account/useraccount">Back to List</a>
+                     </div>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</section>

@@ -1,0 +1,50 @@
+<html>
+   <head>
+      <script type="text/javascript" src="/jqcandlestick/jquery.min.js"></script>
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="/static/exchange/angular.js"></script>
+      <script src="/static/exchange/ui-bootstrap-tpls-0.11.0.js"></script>
+      <script src="/static/exchange/chart.js"></script>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script type="text/javascript">
+      </script>
+   </head>
+   <body >
+      <div ng-app="myApp">
+        <div  ng-controller="CtrChartPie">  
+          <input type="hidden" id="_EXCHANGE_" value="{{MarketName}}" name="">
+          <div id="piechart_3d" style="width: 140px; height: 150px; margin-top: -40px"></div>
+
+          <div class=" hidden-xs hidden-sm" style="margin-top: 15px;">
+           
+         </div>
+         <div class="total-buy-container text-center" style="width: 100%; text-align: center;">
+            <span class="info-text buy" style="font-weight:bold">BUY&nbsp;&nbsp;</span><span class="total-buy-turnover info-text" style="color:goldenrod;font-weight:bold;" id="pieBuy1">{[{total_buy}]}</span>
+         </div>
+         <div class="total-sell-container text-center" style="width: 100%;text-align: center;">
+            <span class="info-text sell" style="font-weight:bold">SELL&nbsp;</span><span class="total-sell-turnover info-text" style="color:goldenrod;font-weight:bold;" id="pieSell1">{[{total_sell}]}</span>
+         </div>
+        </div>
+      </div>
+   </body>
+   <script type="text/javascript">
+     
+   </script>
+   <style type="text/css">
+    body {
+    font-family: 'Roboto',sans-serif;
+}
+     .info-text {
+        font-size: 16px;
+      }
+      
+      .buy {
+          color: #32cd32;
+          font-weight: bold;
+      }
+      .sell {
+          color: red;
+          font-weight: bold;
+      }
+   </style>
+</html> 

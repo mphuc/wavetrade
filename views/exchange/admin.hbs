@@ -1,0 +1,65 @@
+<div class="exchange-page">
+  <div class="col-md-6">
+    <div class="table-exchanges" >
+      <h3 class="text-center">Buy Order</h3>
+     <table id="login_history" border="1" cellpadding="0" cellspacing="0"  style="border-collapse:collapse;"  class="table table-striped table-bordered table-hover"  >
+         <thead>
+            <tr>
+               <th class="text-left">Total</th>
+               <th class="text-right">Size </th>
+               <th class="text-right">Bid </th>
+               <th class="text-right">Email </th>
+               
+            </tr>
+         </thead>
+         
+         <tbody> 
+            {{#each order_buy}}
+             <tr>
+                <td>{{prettifyDate this.date}}</td>
+                <td>{{satoshi this.quantity}}</td>
+                <td>{{satoshi this.price}}</td>
+                <td>{{this.username}}</td>
+                
+             </tr>
+             {{/each}}
+         </tbody>
+      </table>
+    </div>
+  </div>
+
+   <div class="col-md-6">
+    <div class="table-exchanges" >
+      <h3 class="text-center">Sell Order</h3>
+     <table id="login_historys" border="1" cellpadding="0" cellspacing="0"  style="border-collapse:collapse;"  class="table table-striped table-bordered table-hover"  >
+         <thead>
+            <tr>
+               <th class="text-left">Total</th>
+               <th class="text-right">Size </th>
+               <th class="text-right">Ask </th>
+               <th class="text-right">Email </th>
+               
+            </tr>
+         </thead>
+         
+         <tbody> 
+            {{#each order_sell}}
+             <tr>
+                <td>{{prettifyDate this.date}}</td>
+                <td>{{satoshi this.quantity}}</td>
+                <td>{{satoshi this.price}}</td>
+                <td>{{this.username}}</td>
+                
+             </tr>
+             {{/each}}
+         </tbody>
+      </table>
+    </div>
+  </div>
+</div>  
+
+
+
+      
+
+             

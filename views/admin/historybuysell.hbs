@@ -1,0 +1,96 @@
+<div class="content">
+   <div class="container-fluid">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="card">
+               <div class="content">
+                  <!-- <p class="pull-right">Total BTC: {{satoshi total_btc}} BTC</p>
+                  <div class="clearfix"></div>
+                  <p class="pull-right">Total USD: {{formatusd total_usd}} USD</p> -->
+                  <div class="material-datatables" style="width: 100%; overflow-x: scroll;">
+                     <!-- <tr>
+                        <td>Start Date:</td>
+                        <td><input type="date" id="min" name="min"></td>
+                    </tr>
+                    <tr>
+                        <td>End Date:</td>
+                        <td><input type="date" id="max" name="max"></td>
+                    </tr>   -->
+                     <table id="History_BuySell_Account_ID" class="table table-striped table-no-bordered table-hover" style="width:100%;cellspacing:0;" >
+                           
+                           <thead>
+                              <tr>
+                                 <th>Order</th>
+                                 <th>Account ID</th>
+                                 <th>Balance Rest</th>
+                                 <th>Time</th>
+                                 <th>Type</th>
+                                 <th>Symbol</th>
+                                 <th class="text-right">Amount</th>
+                                 <th class="text-right">Profit</th>
+                                 
+                              </tr>
+                           </thead>
+                           <tbody>
+                              {{#each history}}
+                              <tr>
+                                 <td  class="text-center"> {{math1 @index}}</td>
+                                 <td>
+                                  <a href="/qwertyuiop/admin/history-buysell/{{this.user_id}}">
+                                  {{this.user_id}}</a></td>
+                                  <td>{{formatusdtofix this.balance_res}}</td>
+                                 <td class="text-center">{{prettifyDate this.date}}</td>
+                                 
+                                  <td class="text-center" >
+                                    {{#if_eq this.buysell 'Buy'}}
+                                      <span style="color: #2196F3">Buy</span>
+                                    {{/if_eq}}
+                                    {{#if_eq this.buysell 'Sell'}}
+                                      <span style="color: red">Sell</span>
+                                    {{/if_eq}}
+                                    {{#if_eq this.buysell 'Deposit'}}
+                                      <span style="color: #2196F3">Deposit</span>
+                                    {{/if_eq}}
+                                    {{#if_eq this.buysell 'Withdraw'}}
+                                      <span style="color: red">Withdraw</span>
+                                    {{/if_eq}}
+                                  </td>
+                                 
+                                 <td class="text-center">{{this.symbol}}</td>
+                                 <td class="text-right">{{formatusdtofix this.amount}} </td>
+                                 {{#if_eq this.type 'win'}}
+                                    <td class="text-right" style="color: #2196F3">{{this.detai}}</td>
+                                 {{/if_eq}}
+                                 {{#if_eq this.type 'lose'}}
+                                    <td class="text-right" style="color: red">-{{this.detai}}</td>
+                                 {{/if_eq}}
+                                 {{#if_eq this.type 'deposit'}}
+                                    <td class="text-right" style="color: #2196F3">{{this.detai}}</td>
+                                 {{/if_eq}}
+                                 {{#if_eq this.type 'withdraw'}}
+                                    <td class="text-right" style="color: red">-{{this.detai}}</td>
+                                 {{/if_eq}}
+                              </tr>
+                              {{/each}}
+                           </tbody>
+                           <tfoot>
+                              <tr>
+                                 <th></th>
+                                 <th></th>
+                                 <th></th>
+                                 <th></th>
+                                 <th></th>
+                                  <th >Total:</th>
+                                  
+                                  <th class="text-right"></th>
+                                  <th class="text-right"></th>
+                              </tr>
+                          </tfoot>
+                        </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

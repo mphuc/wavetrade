@@ -1,0 +1,702 @@
+@media screen and (max-width: 1199px) {
+  .im0, .im1, .im2 {
+    left: 0;
+    top: 0;
+    margin-bottom: 15px; }
+  .headerLog {
+    top: 0; }
+  .transType {
+    margin-right: 0; }
+  .aff {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 15px; }
+  .represBlock .caution {
+    background-position: center left;
+    padding-left: 35px; }
+  .tarif_item .servisePlan_body {
+    padding: 0 15px; }
+  .calcProfit__right .mgb {
+    top: 0 !important; }
+  .step__item {
+    float: none;
+    width: 100%;
+    margin-right: 0; }
+    .step__item .step__question {
+      width: 20%; }
+    .step__item .step__answer {
+      width: 80%; }
+  .header__panel {
+    width: 100%; }
+  .loginBlock {
+    padding: 20px 15px; }
+  .inp1 {
+    font-size: 14px; }
+  .consecured {
+    background-position: center left; } }
+
+@media screen and (max-width: 991px) {
+  .header__menu {
+    margin-bottom: 15px; }
+  .transactionTable thead tr {
+    display: block;
+    width: 100%; }
+    .transactionTable thead tr th {
+      padding: 15px;
+      text-align: center;
+      display: block;
+      width: 100%; }
+      .transactionTable thead tr th:first-child {
+        padding: 15px; }
+      .transactionTable thead tr th:last-child {
+        padding: 15px; }
+  .transactionTable tbody tr {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px; }
+    .transactionTable tbody tr:last-child {
+      margin-bottom: 0; }
+    .transactionTable tbody tr td {
+      padding: 15px;
+      text-align: center;
+      display: block;
+      width: 100%; }
+  .com__left, .com__right {
+    float: none;
+    padding-right: 0;
+    margin-right: 0;
+    border-right: 0; }
+  .wht__info {
+    bottom: -42px; }
+  .whtdrw {
+    width: 100%;
+    float: none;
+    margin-right: 0;
+    margin-bottom: 30px; }
+  .cabinet__right {
+    background-image: none; }
+  .cabShape {
+    display: none; }
+  .cabHeading {
+    margin-bottom: 30px; }
+  .editBlock {
+    width: 100%; }
+  .edit__left,
+  .edit__right {
+    height: 100%;
+    float: none;
+    width: 100%;
+    padding: 30px; }
+  .editSubmit {
+    border: 1px solid #46da8f; }
+  .edit__right {
+    background-color: #fff; }
+    .edit__right .form-group label {
+      color: #c6c6c6; }
+    .edit__right .form-group input {
+      color: #494949; }
+  .refup {
+    float: none;
+    width: 100%;
+    margin-bottom: 15px; }
+    .refup:last-child {
+      margin-bottom: 0; }
+  .si {
+    margin-bottom: 15px; }
+  .howorks__left {
+    margin-bottom: 30px; }
+  .howorks__left .nav-tabs > li {
+    float: none;
+    width: 100%;
+    display: block; }
+  .howorks__left .tabImg,
+  .howorks__left .tabText {
+    width: 100%;
+    float: none; }
+  .howorks__left .tabText h3 {
+    text-align: center; }
+  .fmargin {
+    margin-bottom: 100px; }
+    .fmargin:last-child {
+      margin-bottom: 30px; }
+  .header__panel {
+    top: 0; }
+  .footer_certify {
+    top: 0; }
+  .footer__menu {
+    top: 0;
+    left: 0; }
+  .header__contentLeft {
+    margin-bottom: 15px; }
+  .header__menuList {
+    display: none; }
+  .header__menuBlock {
+    text-align: center; }
+  .header__menu {
+    top: 0; }
+  .header__item {
+    float: none;
+    text-align: center;
+    margin-right: 0;
+    margin-bottom: 5px; }
+  .header__time {
+    margin-bottom: 15px; } }
+
+@media screen and (max-width: 767px) {
+  .im3 {
+    display: none; }
+  .headerLog a {
+    display: block;
+    width: 200px;
+    margin: 15px auto !important; }
+  .footer__menu ul li {
+    float: none;
+    margin-right: 0; }
+  .footer_Text {
+    top: 0;
+    margin-bottom: 30px; }
+  .ref__left {
+    margin-bottom: 15px; }
+  .headerLog {
+    float: none; }
+    .headerLog a {
+      display: block;
+      text-align: center;
+      margin-bottom: 5px;
+      margin-right: 0; }
+  .cabinetBlock {
+    background: none; }
+  .selectafter1,
+  .selectafter2 {
+    display: none; }
+  .transDay {
+    left: 0;
+    padding: 6px 20px 6px 10px; }
+  .transMonth {
+    left: 0;
+    padding: 6px 20px 6px 10px; }
+  .transactionFilter {
+    text-align: center;
+    padding: 15px;
+    width: 280px;
+    margin: 0 auto;
+    margin-bottom: 30px; }
+  .transactionFilter .transType, .transactionFilter .selectsBlock, .transactionFilter button {
+    float: none; }
+  .transType {
+    margin-bottom: 30px; }
+  .selectsBlock {
+    margin-top: 0;
+    margin-bottom: 30px; }
+  .transactionTable {
+    width: 280px;
+    margin: 0 auto; }
+  .code__body {
+    font-size: 11px;
+    padding: 15px; }
+  .whtdrw .with__left, .whtdrw .with__right {
+    float: none;
+    text-align: center;
+    margin-right: 0; }
+  .depFinal2 .form-group {
+    margin: 0 auto;
+    margin-bottom: 30px; }
+  .cabWallet {
+    width: 290px !important;
+    margin: 0 auto; }
+  .depFinal2 {
+    width: 280px;
+    margin: 0 auto; }
+  .cbg2 {
+    display: none; }
+  .security__item .detect__item {
+    display: block; }
+  .security__item {
+    float: none;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 30px !important; }
+  .security__item:last-child {
+    margin: 0 auto;
+    margin-bottom: 0; }
+  .cabinet__menu li.active:after,
+  .cabinet__menu li:hover:after {
+    display: none; }
+  .cabinet__menu {
+    display: none;
+    width: 250px;
+    margin: 0 auto;
+    margin-bottom: 30px; }
+  .tarif_item .servisePlan_body {
+    height: 190px; }
+  .servisePlans__item {
+    width: 290px;
+    margin: 0 auto; }
+  .depamBlock {
+    width: 100%; }
+  .depFinal label {
+    width: 100%; }
+  .depFinal .form-group, .depFinal .fundsDep {
+    display: block; }
+  .depFinal .fundsDep {
+    width: 100%; }
+  .depFinal .depAmount {
+    width: 100%;
+    margin-right: 0; }
+  .chWallet1, .chWallet2 {
+    display: block;
+    float: none;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 15px; }
+  .tItem {
+    width: 280px;
+    margin: 0 auto;
+    height: 296px;
+    float: none;
+    margin-bottom: 20px; }
+    .tItem:last-child {
+      margin-bottom: 0;
+      margin: 0 auto; }
+    .tItem label {
+      display: block; }
+  .tarif_item {
+    width: 280px;
+    margin: 0 auto; }
+  .edit__left, .edit__right {
+    padding: 15px; }
+  .refup {
+    padding: 15px; }
+  .cabinet__left,
+  .cabinet__right {
+    min-height: 100%; }
+  .refUpIMG, .refUpText {
+    display: block;
+    width: 100%;
+    text-align: center; }
+  .refUpText a {
+    font-size: 14px; }
+  .statCount {
+    background-position: center; }
+  .statItem {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 15px; }
+    .statItem:last-child {
+      margin-bottom: 0; }
+  .cabinet__right {
+    padding: 0; }
+  .cabBlock {
+    width: 100%;
+    margin-bottom: 30px; }
+  .cabBlock__text {
+    padding: 15px; }
+  .balamount {
+    font-size: 20px; }
+  .cabinetBlock {
+    min-height: 100%;
+    padding: 15px 0; }
+  .cabinet__left {
+    padding: 15px;
+    min-height: 100%;
+    margin-bottom: 30px; }
+  .walletBlock {
+    position: relative;
+    display: none;
+    top: 0;
+    left: 0; }
+  .signupBlock {
+    width: 100%; }
+  .pageLoginForm {
+    width: 100%;
+    padding: 15px; }
+  .invForm .selectgroup {
+    width: 100%; }
+  .invForm .form-group {
+    margin-right: 0;
+    width: 100%; }
+  .invForm a {
+    display: block;
+    margin-bottom: 15px;
+    width: 100%; }
+  .si {
+    margin-bottom: 15px; }
+    .si:last-child {
+      margin-bottom: 0; }
+  .faqtabslist {
+    background-color: transparent; }
+  .faqtabslist li {
+    background-color: #f1f1ff;
+    float: none;
+    width: 100%;
+    margin-bottom: 5px; }
+    .faqtabslist li:last-child {
+      margin-bottom: 0; }
+  .supportBlock .captBlock {
+    border: 1px solid #46da8f; }
+  .supportInput2 {
+    border-left: 1px solid #46da8f !important;
+    border-bottom: 0 !important; }
+  .supportSubmit {
+    border: 1px solid #46da8f !important;
+    color: #46da8f !important; }
+    .supportSubmit:hover {
+      color: #fff !important;
+      background-color: #46da8f !important; }
+  .supportBlock .supportFormBlock .supportInput {
+    color: #494949;
+    border-bottom: 1px solid #46da8f; }
+  .supportInput::-webkit-input-placeholder {
+    color: #494949 !important;
+    font-size: 16px; }
+  .supportInput::-moz-placeholder {
+    color: #494949 !important;
+    font-size: 16px; }
+  /* Firefox 19+ */
+  .supportInput:-moz-placeholder {
+    color: #494949 !important;
+    font-size: 16px; }
+  /* Firefox 18- */
+  .supportInput:-ms-input-placeholder {
+    color: #494949 !important;
+    font-size: 16px; }
+  .supportBlock {
+    width: 100%;
+    margin: 0;
+    position: relative;
+    top: 0;
+    left: 0;
+    background: #fff;
+    color: #494949; }
+  .supportBlock .addressBlock, .supportBlock .supportFormBlock {
+    float: none;
+    width: 100%;
+    padding: 15px; }
+  .secHeader__shadow {
+    display: none; }
+  .aboutSec {
+    padding: 15px;
+    margin-bottom: 150px; }
+  .aboutSec__left,
+  .aboutSec__right {
+    float: none;
+    width: 100%; }
+  .aboutSec__left {
+    margin-bottom: 30px; }
+    .aboutSec__left img {
+      margin: 0 auto;
+      margin-bottom: 15px; }
+  .qrafSection {
+    padding: 30px 0; }
+  .calcProfit__right .mgb {
+    top: 30px !important; }
+  .profitForm {
+    width: 100%; }
+  .profitForm .form-group {
+    width: 100%; }
+  .calcProfit__left {
+    margin-bottom: 30px; }
+  .calcProfit__right .mgb {
+    position: relative; }
+  .step__answer:before {
+    display: none; }
+  .step__item h2 {
+    position: relative; }
+  .step__item h4 {
+    top: 0; }
+  .step__item .step__heading {
+    padding: 0; }
+  .step__links a {
+    display: block;
+    margin-right: 0;
+    margin: 0 auto;
+    width: 100%;
+    margin-bottom: 15px; }
+  .step__item h2 {
+    font-size: 80px; }
+  .step__question {
+    width: 100% !important;
+    height: auto !important; }
+  .step__answer {
+    width: 100% !important;
+    height: auto !important; }
+  section {
+    padding: 30px 15px; }
+  .secHeader {
+    border-top: 0;
+    margin-bottom: 30px; }
+  .secHeader span {
+    bottom: 0;
+    background-color: transparent;
+    font-size: 20px; }
+  .foureasons {
+    margin: 0 auto;
+    padding: 120px 0 0 0; }
+  .mockup {
+    display: none; }
+  .hBlokcItem {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 10px; }
+  .kurs__item:nth-child(odd) {
+    margin-right: 0; }
+  .kurs__item {
+    float: none;
+    margin-bottom: 15px; }
+  .footer__logo {
+    margin-bottom: 15px; }
+  .footer__menu {
+    width: 130px;
+    margin: 0 auto;
+    margin-bottom: 15px; }
+  .certifImg, .certifAdress {
+    text-align: left; }
+  .certifImg {
+    text-align: center;
+    margin-bottom: 15px; }
+  .certifImg, .certifAdress {
+    float: none; }
+  .certifAdress {
+    width: 100%;
+    margin-bottom: 15px; }
+  footer {
+    text-align: center; }
+  .header__content {
+    padding: 30px 0; }
+  .header__contentLeft h1 {
+    text-align: center;
+    font-size: 30px;
+    line-height: 30px; }
+  .header__lang {
+    padding-right: 0; }
+  .header__menuBlock {
+    text-align: center; }
+  .header__topInfo {
+    padding: 15px 0;
+    text-align: center; }
+  .header__contact {
+    margin-bottom: 5px; }
+  .header__lang.pull-right {
+    float: none !important; }
+  .header__lang ul li.current .languagesList {
+    left: 50%;
+    margin-left: -65px; } }
+
+@media screen and (min-width: 768px) and (max-width: 1400px) {
+  .mockup {
+    position: absolute;
+    top: 50%;
+    margin-top: -45px;
+    left: 0;
+    width: 100px;
+    height: 200px; } }
+
+@media screen and (max-width: 1400px) {
+  .calcProfit__right .mgb {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    top: -45px; } }
+
+@media screen and (min-width: 1351px) and (max-width: 1400px) {
+  .cabinet__menu li.active:after {
+    right: -25px; } }
+
+@media screen and (min-width: 1401px) and (max-width: 1460px) {
+  .cabinet__menu li.active:after {
+    right: -20px; } }
+
+@media screen and (min-width: 1200px) and (max-width: 1350px) {
+  .cabinetBlock {
+    background: #46da8f;
+    background: -moz-linear-gradient(left, #46da8f 0%, #46da8f 24%, transparent 24%, transparent 100%);
+    background: -webkit-linear-gradient(left, #46da8f 0%, #46da8f 24%, transparent 24%, transparent 100%);
+    background: linear-gradient(to right, #46da8f 0%, #46da8f 24%, transparent 24%, transparent 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#46da8f', endColorstr='#ffffff',GradientType=1 ); } }
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .headerLog {
+    top: 0; }
+    .headerLog a {
+      display: inline-block;
+      margin-bottom: 5px; }
+  .cabinet__menu li.active:after,
+  .cabinet__menu li:hover:after {
+    right: -15px; }
+  .selectsBlock {
+    margin-right: 30px; }
+  .appFilter {
+    display: inline-block;
+    min-width: 150px; }
+  .whtdrw {
+    width: 313px; }
+  .security__item .detect__item label,
+  .security__item .detect__item input:checked + label {
+    font-size: 11px; }
+  .security__item {
+    width: 320px;
+    margin-right: 15px; }
+  .security__item .cabBlock__text p {
+    font-size: 14px; }
+  .security__item .cabBlock__text {
+    padding: 11px; }
+  .security__item .detect__item {
+    margin-right: 5px;
+    display: inline-block; }
+  .cabinetBlock {
+    background: #46da8f;
+    background: -moz-linear-gradient(left, #46da8f 0%, #46da8f 25%, transparent 25%, transparent 100%);
+    background: -webkit-linear-gradient(left, #46da8f 0%, #46da8f 25%, transparent 25%, transparent 100%);
+    background: linear-gradient(to right, #46da8f 0%, #46da8f 25%, transparent 25%, transparent 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#46da8f', endColorstr='#ffffff',GradientType=1 ); }
+  .tItem {
+    width: 155px; }
+  .depositTarifs {
+    margin-bottom: 75px; }
+  .tarif_item .servisePlan_body {
+    height: 245px; }
+  .editBlock {
+    width: 695px; }
+  .edit__left {
+    padding: 90px 50px;
+    width: 380px; }
+  .edit__right {
+    width: 315px; }
+  .cabinet__right {
+    padding: 35px 40px 35px 0px; }
+  .refLinkBlock {
+    margin-right: 15px; }
+  .upLineBlock {
+    width: 300px; }
+  .refLinkBlock {
+    width: 340px; }
+  .refUpText a {
+    font-size: 12px; }
+  .refUpIMG {
+    margin-right: 5px; }
+  .statCount p {
+    top: 35px;
+    font-size: 14px; }
+  .statItem {
+    margin-right: 25px;
+    width: 120px; }
+  .statCount {
+    -webkit-background-size: contain;
+    background-size: contain;
+    margin-bottom: 0; }
+  .invForm .form-group {
+    width: 120px; }
+  .invForm .selectgroup {
+    width: 200px; }
+  .service__text ul li {
+    font-size: 12px; }
+  .service__text a {
+    font-size: 14px; }
+  .aboutSec__left {
+    width: 250px; }
+  .aboutSec__right {
+    width: 720px; }
+  .howorks__left .tabImg {
+    width: 152px; }
+  .howorks__left .tabText {
+    width: 300px; }
+  span.kursCount {
+    font-size: 13px; }
+  .kurs__item:nth-child(odd) {
+    margin-right: 15px; }
+  .certifAdress p, .viewHouse a {
+    font-size: 12px; }
+  .header__item {
+    margin-right: 12px; }
+    .header__item a {
+      font-size: 14px; }
+  .certifInfo {
+    height: 118px; } }
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .footer__menu ul li {
+    margin-right: 30px; }
+  span.kursCount {
+    font-size: 12px; }
+  .secHeader span {
+    font-size: 35px; }
+  .certifAdress p {
+    font-size: 12px; }
+  .transType {
+    background-position: right 10px center;
+    padding: 6px 20px; }
+  .selectsBlock {
+    margin-bottom: 30px; }
+  .depFinal2 .form-group {
+    width: 200px;
+    margin: 0 auto; }
+    .depFinal2 .form-group input {
+      width: 100%; }
+  .depFinal2 {
+    width: auto; }
+  .chWallet1, .chWallet2 {
+    width: 185px; }
+  .depFinal .depAmount {
+    margin-right: 0; }
+  .tItem {
+    width: 210px;
+    height: 300px;
+    margin-right: 15px;
+    margin-bottom: 20px; }
+  .statItem {
+    margin-right: 60px;
+    margin-bottom: 15px; }
+    .statItem:nth-child(even) {
+      margin-right: 0; }
+  .userinfo p span {
+    display: block; }
+  /*	.cabinetBlock{
+		background-image: none;
+		background-color: #00DB8C;
+	}*/
+  .balamount {
+    font-size: 40px; }
+  .signupBlock {
+    width: 700px; }
+  .walletBlock {
+    left: -15px; }
+  .invForm a {
+    padding: 7px 28px; }
+  .invForm .form-group {
+    width: 70px;
+    margin-right: 10px; }
+  .invForm .selectgroup {
+    width: 200px; }
+  .aboutSec__right {
+    width: 600px; }
+  .aboutSec__left {
+    width: 150px; }
+  .mockup {
+    margin-top: 30px; }
+  .hBlokcItem {
+    margin-right: 25px; }
+  .footer_certify {
+    margin-top: 15px; }
+  .certifAdress {
+    width: 225px; }
+  .header__lang ul li a {
+    font-size: 12px; }
+  .header__time .currTime {
+    font-size: 25px; }
+  .header__logoBlock a {
+    font-size: 30px; } }
+
+@media screen and (min-width: 768px) {
+  .cabinet__menu {
+    display: block !important; } }
+
+@media screen and (min-width: 992px) {
+	.reg_confirm{
+		padding: 100px 0;
+	}
+  .mobIcon {
+    display: none; }
+  .header__menuList {
+    display: block !important; } }

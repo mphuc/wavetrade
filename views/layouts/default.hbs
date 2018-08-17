@@ -1,0 +1,1294 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" >
+      <link rel="icon" type="image/png" href="/img/logo.png" >
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+      <meta name="description" content="">
+      <title>{{ title }}</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      <meta name="viewport" content="width=device-width" >
+      <link href="/static/css/bootstrap.min.css" rel="stylesheet" >
+      <link href="/static/css/addon.css" rel="stylesheet" >
+      <link href="/static/css/font-awesome.min.css" rel="stylesheet">
+      <link href="/css/sweetalert.css" rel="stylesheet" >
+      <link href="/static/css/jquery.toast.css" rel="stylesheet">
+      <link href="/static/css/corecss.css" rel="stylesheet">
+      <link href="/static/css/style.tree.min.css" rel="stylesheet">
+      <link href="/static/css/customer.css" rel="stylesheet">
+      <link href="/static/css/responsive.css" rel="stylesheet">
+      
+   </head>
+   <body ng-app='myApp'>
+      <div id="pad-wrapper" >
+      <div class="clearfix">
+         
+      </div>
+      <div id="header-navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+         <div class="container-fluid container-header">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle collapsed hidden-sm" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+               <a class="pull-left" href="/account/dashboard" id="logo-home"  >
+                        
+                  <img src="/img/logo-right.png" style="margin-top: -4px;" width="170" alt="logo" class="img-responsive">
+                  
+               </a>
+               
+            </div>
+            <div class="navbar-collapse collapse">
+            <span style="color: #3cc8c8; line-height: 50px;margin-left: 30px;margin-top: 0px;float: left;">Hello: {{user.email}} </span>
+
+               <span  class="balance_userss" style="color: #d4bb3f; line-height: 50px;margin-left: 42px;font-size: 22px;"><img src="/img/balance.png" class="hidden-xs " width="27"> Wallet: {{formatusd user.balance}} USD</span>
+               {{#if_eq has_login false}}
+               <ul class="nav navbar-nav navbar-right">
+                  <li id="dash_menu_wallet">
+                     <a href="/Market/Dashboard">
+                     <i class="fa fa-usd"></i>
+                     <span class="">&nbsp; Markets</span>
+                     </a>
+                  </li>
+                  <li>
+                     <a href="/signup">
+                     <i class="fa fa-users"></i>
+                     <span>&nbsp; Register</span>
+                     </a>
+                  </li>
+                  <li>
+                     <a href="/signin">
+                     <i class="fa fa-sign-in"></i>
+                     <span>&nbsp; Login</span>
+                     </a>
+                  </li>
+               </ul>
+               <ul class="nav navbar-nav navbar-right">
+                  <li class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                     <i class="fa fa-question-circle"></i><span class="hidden-sm">&nbsp; Help</span>  <b class="caret"></b>
+                     </a>
+                     <ul class="dropdown-menu">
+                        <li><a href="/Support">Support</a></li>
+                        <li><a href="/Market/Api">API Documentation</a></li>
+                        <li><a href="/Market/Fees">Fees</a></li>
+                        
+                     </ul>
+                  </li>
+               </ul>
+               {{else}}
+               <ul class="nav navbar-nav navbar-right">
+                  <li id="dash_menu_wallet">
+                     <a href="/account/dashboard">
+                     <i class="fa fa-dashboard"></i>
+                     <span class="">&nbsp; Dashboard</span>
+                     </a>
+                  </li>
+                  <li id="dash_menu_wallet">
+                     <a href="/account/useraccount">
+                     <i class="fa fa-user"></i>
+                     <span class="">&nbsp; Account</span>
+                     </a>
+                  </li>
+                  <li id="dash_menu_wallet">
+                     <a href="/account/affiliate/refferal">
+                     <i class="fa fa-user"></i>
+                     <span class="">&nbsp; Member</span>
+                     </a>
+                  </li>
+                  
+                  
+                  <li id="dash_menu_wallet">
+                     <a href="/balance">
+                     <i class="fa fa-btc"></i>
+                     <span class="">&nbsp; Wallets</span>
+                     </a>
+                  </li>
+                  <li id="dash_menu_settings">
+                     <a href="/setting">
+                     <i class="fa fa-cog"></i>
+                     <span class="">&nbsp; Settings</span>
+                     </a>
+                  </li>
+                  
+                  <li id="dash_menu_settings">
+                     <a href="/logout">
+                     <i class="fa fa-sign-out"></i>
+                     <span class="">&nbsp; Logout</span>
+                     </a>
+                  </li>
+               </ul>
+               {{/if_eq}}
+            </div>
+         </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="col-lg-12">
+         <div class="clearfix"></div>
+
+            {{{ body }}}
+         
+      </div>
+
+      <div class="modal fade modal_exchange" id="modal_buy_Exchange" tabindex="-1" role="dialog" aria-labelledby="ModalDeposit-label">
+            <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> 
+                     <h4 class="modal-title" id="ModalDeposit-label">Buy {{MarketName}}</h4>
+                  </div>
+                  <form id="Form-submit-buy-exchange" method="POST" action="/Market/submit-buy">
+                     <input type="hidden" class="token_crt" name="token_crt">
+                     <input type="hidden" name="MarketName" value="{{MarketName}}" />
+                     <div class="modal-body">
+                        <div class="text-center">
+                           <div class="row" style="margin-bottom:20px">
+                              <div class="col-sm-offset-1 col-sm-2">
+                                 <h4 style="font-weight:bold">Type:</h4>
+                              </div>
+                              <div class="col-sm-3">
+                                 <h4 data-bind="text:orderTypeMsg">Buy {{exchange}}</h4>
+                              </div>
+                              <div class="col-sm-2">
+                                 <h4 style="font-weight:bold">Market:</h4>
+                              </div>
+                              <div class="col-sm-3">
+                                 <h4>{{MarketName}}</h4>
+                              </div>
+                           </div>
+                           <div id="form-container">
+                  <form role="form" class="form-horizontal" id="submit_buy_exchange">
+                  <div class="form-group" style="margin-bottom:10px;float: left;">
+                  <h5 class="col-sm-offset-1 col-sm-3">
+                  Quantity:
+                  </h5>
+                  <div class="col-sm-7">
+                  <div class="input-group">
+                  <input class="form-control text-right" name="quantity" type="text" readonly="readonly" value="0">
+                  <span class="input-group-addon">{{exchange}}</span>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="form-group" style="margin-bottom:10px;float: left;">
+                  <h5 class="col-sm-offset-1 col-sm-3">
+                  Price:
+                  </h5>
+                  <div class="col-sm-7">
+                  <div class="input-group">
+                  <input class="form-control text-right" name="price" type="text"  readonly="readonly" value="0">
+                  <span class="input-group-addon">{{namecoin}}</span>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="form-group" style="margin-bottom:10px;float: left;">
+                  <h5 class="col-sm-offset-1 col-sm-3">
+                  Subtotal:
+                  </h5>
+                  <div class="col-sm-7">
+                  <div class="input-group">
+                  <input class="form-control text-right" name="subtotal" type="text" readonly="readonly" value="0">
+                  <span class="input-group-addon">{{namecoin}}</span>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="form-group" style="margin-bottom:10px;float: left;">
+                  <h5 class="col-sm-offset-1 col-sm-3">
+                  Commission:
+                  </h5>
+                  <div class="col-sm-7">
+                  <div class="input-group">
+                  <input class="form-control text-right" name="commission" type="text" readonly="readonly" value="0">
+                  <span class="input-group-addon">{{namecoin}}</span>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="form-group" style="margin-bottom:10px;float: left;">
+                  <h5 class="col-sm-offset-1 col-sm-3">
+                  Total:
+                  </h5>
+                  <div class="col-sm-7">
+                  <div class="input-group">
+                  <input class="form-control text-right" name="total" type="text" readonly="readonly" value="0">
+                  <span class="input-group-addon">{{namecoin}}</span>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="alert alert-danger alert-dismissable error_submit_buy" style="display: none;"></div>
+                  <div class="clearfix"></div>
+                  
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                  <button type="submit" class="btn btn-primary has-spinner btn-submit-exchain"  style="">
+                  <span class="spinner"><i style="display: none;" class="fa fa-spinner fa-pulse"></i></span>
+                  <confirm>Confirm</confirm>
+                  </button>
+                  </div>
+                  <div class="clearfix"></div>
+                  </form>
+               </div>
+            </div>
+         </div>
+         <div class="modal fade modal_exchange" id="modal_sell_Exchange" tabindex="-1" role="dialog" aria-labelledby="ModalDeposit-label">
+            <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> 
+                     <h4 class="modal-title" id="ModalDeposit-label">Sell {{MarketName}}</h4>
+                  </div>
+                  <form id="Form-submit-sell-exchange" method="POST" action="/Market/submit-sell">
+                     <input type="hidden" class="token_crt" name="token_crt">
+                     <input type="hidden" name="MarketName" value="{{MarketName}}" />
+                     <div class="modal-body">
+                        <div class="text-center">
+                           <div class="row" style="margin-bottom:20px">
+                              <div class="col-sm-offset-1 col-sm-2">
+                                 <h4 style="font-weight:bold">Type:</h4>
+                              </div>
+                              <div class="col-sm-3">
+                                 <h4 data-bind="text:orderTypeMsg">Sell {{exchange}}</h4>
+                              </div>
+                              <div class="col-sm-2">
+                                 <h4 style="font-weight:bold">Market:</h4>
+                              </div>
+                              <div class="col-sm-3">
+                                 <h4>{{MarketName}}</h4>
+                              </div>
+                           </div>
+                           <div class="bs-callout bs-callout-info" style="display: none;" data-bind="visible:orderIsConditional">
+                              <h4>Condition</h4>
+                              <p data-bind="text:orderConditionMsg"></p>
+                           </div>
+                           <div id="form-container">
+                              <div class="form-group" style="margin-bottom:10px; float: left;">
+                                 <h5 class="col-sm-offset-1 col-sm-3">
+                                    Quantity:
+                                 </h5>
+                                 <div class="col-sm-7">
+                                    <div class="input-group">
+                                       <input class="form-control text-right" name="quantity" type="text" readonly="readonly" value="0">
+                                       <span class="input-group-addon">{{exchange}}</span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="form-group" style="margin-bottom:10px; float: left;">
+                                 <h5 class="col-sm-offset-1 col-sm-3">
+                                    Price:
+                                 </h5>
+                                 <div class="col-sm-7">
+                                    <div class="input-group">
+                                       <input class="form-control text-right" name="price" type="text"  readonly="readonly" value="0">
+                                       <span class="input-group-addon">{{namecoin}}</span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="form-group" style="margin-bottom:10px; float: left;">
+                                 <h5 class="col-sm-offset-1 col-sm-3">
+                                    Subtotal:
+                                 </h5>
+                                 <div class="col-sm-7">
+                                    <div class="input-group">
+                                       <input class="form-control text-right" name="subtotal" type="text" readonly="readonly" value="0">
+                                       <span class="input-group-addon">{{namecoin}}</span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="form-group" style="margin-bottom:10px; float: left;">
+                                 <h5 class="col-sm-offset-1 col-sm-3">
+                                    Commission:
+                                 </h5>
+                                 <div class="col-sm-7">
+                                    <div class="input-group">
+                                       <input class="form-control text-right" name="commission" type="text" readonly="readonly" value="0">
+                                       <span class="input-group-addon">{{namecoin}}</span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="form-group" style="margin-bottom:10px; float: left;">
+                                 <h5 class="col-sm-offset-1 col-sm-3">
+                                    Total:
+                                 </h5>
+                                 <div class="col-sm-7">
+                                    <div class="input-group">
+                                       <input class="form-control text-right" name="total" type="text" readonly="readonly" value="0">
+                                       <span class="input-group-addon">{{namecoin}}</span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="clearfix"></div>
+                           <div class="alert alert-danger alert-dismissable error_submit_sell" style="display: none;"></div>
+                           <div class="clearfix"></div>
+                           
+                        </div>
+                     </div>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary has-spinner btn-submit-exchain"  style="">
+                           <span class="spinner"><i style="display: none;" class="fa fa-spinner fa-pulse"></i></span>
+                           <confirm>Confirm</confirm>
+                        </button>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="clearfix" style="margin-top: 100px;" ></div>
+        
+      <input type="hidden" name="rate_coin" id="rate_coin" value="0.5"><input type="hidden" name="ast_btc" id="ast_btc" value="0.5"><input type="hidden" name="btc_usd" id="btc_usd" value="0.5">
+      <div class="modal fade" id="ModalDeposit" tabindex="-1" role="dialog" aria-labelledby="ModalDeposit-label">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="ModalDeposit-label">BTC Wallet Address</h4>
+               </div>
+               <div class="modal-body"></div>
+            </div>
+         </div>
+      </div>
+      <!-- Modal Exchange-->
+      <div class="modal fade" id="ModalTransfer" tabindex="-1" role="dialog" aria-labelledby="ModalTransfer-label">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="ModalTransfer-label">Convert STC</h4>
+               </div>
+               <form role="form" class="form-horizontal" id="frmTransfer" novalidate="novalidate">
+                  <div class="modal-body">
+                     <div class="col-md-5 ">
+                        <div class="main-wallet">
+                           <div class="content">
+                              <div class="row">
+                                 <div class="col-xs-12">
+                                    <div class="">
+                                       <p>USD Wallet</p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="card-footer"><span class="balance_lending">{{user.balance.lending_wallet.available}}</span> USD</div>
+                        </div>
+                     </div>
+                     <div class="col-md-2">
+                        <div class="text-center"><i class="fa fa-arrows-h" style=" font-size: 30px; margin-top: 30px; color: #44c7f4; "></i></div>
+                     </div>
+                     <div class="col-md-5 ">
+                        <div class="main-wallet">
+                           <div class="content">
+                              <div class="row">
+                                 <div class="col-xs-12">
+                                    <div class="">
+                                       <p>STC Wallet</p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="card-footer"><span class="balnace_coin">{{user.balance.coin_wallet.available}} STC</span></div>
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <label class="col-md-12">Amount</label>
+                        <div class="col-sm-12">
+                           <div class="input-group"><input type="text" placeholder="Amount" class="form-control amount_usd" name="amount" id="amount_transfer"><span class="input-group-addon">USD</span></div>
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <label class="col-md-12">STC</label>
+                        <div class="col-sm-12">
+                           <div class="input-group"><input type="text" class="form-control amount_coin" readonly="" id="amount_coin_transfer" name="amount_coin"><span class="input-group-addon">STC</span></div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="modal-footer"><button type="button" class="btn btn-social btn-fill btn-twitter" data-dismiss="modal">Close</button><button type="button" class="btn btn-social btn-fill btn-twitter btnConfirm" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Processing Order">Transfer To STC Wallet</button></div>
+               </form>
+            </div>
+         </div>
+      </div>
+      <!-- ICO -->
+      <div id="ModalICO" class="modal fade" role="dialog" >
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">ICO STC</h4>
+               </div>
+               <!-- <div class="modal-body">
+                  <h3 class="text-center">COMMING SOON</h3>
+               </div> -->
+               {{#if_eq total_ico.status '1'}}
+              <form method="post" accept-charset="utf-8" action="/account/ico/sumit-buy" id="frmICO" class="send-coin-form" autocomplete="off" novalidate="novalidate">
+                  <div class="modal-body">
+                     
+                     <div class="form-group text-center" style="margin-bottom: 30px;">
+                        <label class="text-center" style="margin-bottom: 30px;">Payment Method</label>
+                        <div class="row">
+                           <div class="col-md-6 col-xs-6">
+
+                              <div class="method_payment bitcoin ">
+                                 <div class="pull-left left_bl text-right"><img src="/assets/img/Bitcoin-256.png" width="25" /></div>
+                                 <div class="pull-left text-left"><span>Bitcoin</span><b>{{satoshi user.balance.bitcoin_wallet.available}} BTC</b></div>
+                                 <div class="clearfix"></div>
+                              </div>
+                           </div>
+                           <div class="col-md-6 col-xs-6">
+                              <div class="method_payment bitcoin_gold">
+                                 <div class="pull-left left_bl text-right"><img src="/assets/img/bitcoin-gold.png" width="25" /></div>
+                                 <div class="pull-left text-left"><span>Bitcoin Gold</span><b>{{satoshi user.balance.bitcoingold_wallet.available}} BTG</b></div>
+                                 <div class="clearfix"></div>
+                              </div>
+                           </div>
+                           
+                        </div>
+                     </div>
+                     <input type="hidden" name="payment_method" id="payment_method" value="BTC">
+                     <div class="row">
+                        <div class="form-group col-md-6">
+                           <label>Amount STC</label>
+                           <div class="input-group">
+                              <input type="text" id="amount_coin" class="form-control input-flyp " name="amount_coin" placeholder="Enter amount STC" required="" autocomplete="off">
+                              <div class="input-group-addon ng-binding">STC</div>
+                           </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                           <label>Amount <span class="unit_payment">BTC</span> Payment</label>
+                           <div class="input-group">
+                              <div class="input-group-addon addon-aprox invoiced ">~</div>
+                              <input readonly="true" type="text" id="amount_btc" class="form-control input-flyp" name="amount_btc" placeholder="Enter amount BTC" required="" autocomplete="off">
+                              <div class="input-group-addon unit_payment">BTC</div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="text-center" id="capatcha">
+                        <div class="g-recaptcha" data-theme="light" data-sitekey="6LfTIDYUAAAAAIscAJ-qcY2EkCCZLfGK3O6FPnSj"></div>
+                     </div>
+                     <div class="alert alert alert-danger alert-dismissable" style="display: none;"><a class="close" data-dismiss="alert">×</a><span class="message"></span></div>
+                  </div>
+                  <div class="modal-footer"><button type="submit" class="btn btn-social btn-fill btn-twitter frmWihtdrawBTC_Submit" data-type="coin"> Buy STC</button><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>
+               </form>
+               {{/if_eq}} 
+               {{#if_eq total_ico.status '0'}}
+                  <div class="modal-body">
+                     <h3 class="text-center">The time to open ICO sale today has ended. Please come back the next day.</h3>
+                     <!-- <h3 class="text-center">11:00pm  (HKT, +8)</h3> -->
+                     <input type="hidden" id="start_day_ico" value="{{date_start}}" name="">
+                     <!-- <div class="text-center" style="width: 335px;
+    margin: 0 auto;text-shadow: 1px 1px 1px #50aff0;">
+                         <div class="countdown">
+                             <div class="countdown-time">
+                                <ul class="clearfix" id="js-countDownico-start">
+                                       <li class="item" style="display: none !important;"><i class="day">00</i><span>days</span></li>
+                                       <li class="blank">:</li>
+                                       <li class="item"><i class="hour">00</i><span>hours</span></li>
+                                       <li class="blank">:</li>
+                                       <li class="item"><i class="minute">00</i><span>minutes</span></li>
+                                       <li class="blank">:</li>
+                                       <li class="item"><i class="second">00</i><span>seconds</span></li>
+                                       <li class="blank">:</li>
+                                       <li class="item"><i class="ms">00</i><span>milliseconds</span></li>
+                                   </ul>
+                             </div>
+                          </div>
+                        </div> -->
+                     </div>
+               {{/if_eq}} 
+            </div>
+         </div>
+      </div>
+      <!-- End ICO --><!-- Deposit BTC -->
+      <div id="modalDepositBTC" class="modal fade" role="dialog" >
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">DEPOSIT <span id="name_coin"></span></h4>
+               </div>
+               <div class="modal-body text-center">
+                  <div class="wallets"></div>
+                  <div class="clearfix"></div>
+               </div>
+               
+               <div class="col-sm-12" data-bind="visible:wallet.showDepositCallOut">
+                <div class="bs-callout bs-callout-danger"><p><strong>Please send to the correct address. We are not responsible for your lost.</strong></p></div>
+               </div>
+               <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>
+            </div>
+         </div>
+      </div>
+      <!-- End Deposit BTC --><!-- Deposit LTC -->
+      <div id="modalDepositLTC" class="modal fade" role="dialog" >
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">DEPOSIT LITECOIN (LTC)</h4>
+               </div>
+               <div class="modal-body text-center">
+                  <div class="wallets"></div>
+                  <div class="clearfix"></div>
+               </div>
+               <div class="col-sm-12" data-bind="visible:wallet.showDepositCallOut">
+                <div class="bs-callout bs-callout-danger"><p><strong>Please send to the correct Litecoin address. We are not responsible for your lost.</strong></p></div>
+               </div>
+               <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>
+            </div>
+         </div>
+      </div>
+      <!-- End Deposit LTC --><!-- Deposit LTC -->
+      <div id="modalDepositDASH" class="modal fade" role="dialog" >
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">DEPOSIT DASH (DASH)</h4>
+               </div>
+               <div class="modal-body text-center">
+                  <div class="wallets"></div>
+                  <div class="clearfix"></div>
+               </div>
+               <div class="col-sm-12" data-bind="visible:wallet.showDepositCallOut">
+                <div class="bs-callout bs-callout-danger"><p><strong>Please send to the correct Dash address. We are not responsible for your lost.</strong></p></div>
+               </div>
+               <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>
+            </div>
+         </div>
+      </div>
+     
+      <div id="modalDepositBTG" class="modal fade" role="dialog" >
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Deposit Bitcoin Gold (BTG)</h4>
+               </div>
+               <div class="modal-body text-center">
+                  <div class="wallets"></div>
+                  <div class="clearfix"></div>
+               </div>
+               <div class="col-sm-12" data-bind="visible:wallet.showDepositCallOut">
+                <div class="bs-callout bs-callout-danger"><p><strong>Please send to the correct Bitcoin Gold address. We are not responsible for your lost.</strong></p></div>
+               </div>
+               <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>
+            </div>
+         </div>
+      </div>
+      <!-- End Deposit BCH --><!-- modalWithdrawConfirmSTC -->
+      <div id="modalWithdrawConfirmCOIN" class="modal fade" role="dialog" >
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Confirm Santacoin Withdrawal</h4>
+               </div>
+               <form id="Confirm-Submit-COIN" action="/account/balance/withdraw" method="POST">
+               <input type="hidden" name="type" value="STC" />
+                  <div class="modal-body">
+                     <div class="row">
+                        <div class="col-sm-offset-1 col-sm-3">
+                           <h5 data-bind="text:wallet.labelWithdrawalBaseAddress">Address</h5>
+                        </div>
+                        <div class="col-sm-7">
+                           <div class="input-group"><input class="form-control text-left" name="address" type="text" readonly="readonly" value="0"><span class="input-group-addon" >ADDR</span></div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-sm-offset-1 col-sm-3">
+                           <h5>Transaction Fee:</h5>
+                        </div>
+                        <div class="col-sm-7">
+                           <div class="input-group"><input class="form-control text-left" type="text" readonly="readonly" value="0.03"><span class="input-group-addon" >STC</span></div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-sm-offset-1 col-sm-3">
+                           <h5>Total:</h5>
+                        </div>
+                        <div class="col-sm-7">
+                           <div class="input-group"><input class="form-control text-left" name="amount" type="text" readonly="readonly" value="0"><span class="input-group-addon">STC</span></div>
+                        </div>
+                     </div>
+                     <div class="alert alert alert-danger alert-dismissable" style="display: none;"><a class="close" data-dismiss="alert">×</a><span class="message"></span></div>
+                     <input type="hidden" class="token_crt" name="token_crt"> {{#if_eq user.security.two_factor_auth.status '1'}}
+                     <blockquote style="margin: 0px;">
+                        <p style="font-size: 12px;">By inputting your two-factor authentication code, your withdrawal will process immediately.</p>
+                     </blockquote>
+                     <div class="row">
+                        <div class="col-sm-offset-1 col-sm-10" style="margin-top:10px"><input type="text" name="authenticator" class="form-control" placeholder="6-digit authentication code" style=""></div>
+                     </div>
+                     {{/if_eq}}
+                  </div>
+                  <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button><button type="submit" class="btn btn-twitter btn-fill confirm_modal_btc">Confirm</button></div>
+               </form>
+            </div>
+         </div>
+      </div>
+      <!-- End modalWithdrawConfirmSTC -->
+      <div class="modal fade" role="dialog" id="ModalDetailsICO" >
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title">ICO Detail</h4>
+               </div>
+               <div class="modal-body">
+                  <h4 style="font-size: 18px; margin-bottom: 20px" class="text-center">The ICO sale period is from December 2, 2017 to December 20, 2017</h4>
+                  <p>STC accepts payment for ICO purchases with Bitcoin and Bitcoin Gold.</p>
+                  <p>The amount allowed to purchase is in the range of 50 STC to 300 STC per purchase</p>
+                  <p>To purchase ICO you follow these steps:</p>
+                  <ul>
+                     <li>Deposit your coin under the payment gateway Bitcoin, Litecoin, Dash and Bitcoin Cash <a href="https://STC.co/balance">https://STC.co/balance</a></li>
+                     <li>Order your ICO by clicking on "Order Now" at the address <a href="https://STC.co/ico">https://STC.co/ico</a></li>
+                     <li>After placing your order, your order will be processed within 24 hours.</li>
+                     <p><i>Note: Your order may be rejected due to excessive sales of the ICO that the sales schedule has specified</i></p>
+                  </ul>
+                  <p>Sale time and selling price are stipulated as follows:</p>
+                  <table class="table">
+                     <thead>
+                        <tr>
+                           <th><b>Date</b></th>
+                           <th><b>STC</b></th>
+                           <th><b>Price</b></th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>December 02, 2017</td>
+                           <td>300,000</td>
+                           <td>$ 0.6</td>
+                        </tr>
+                        <tr>
+                           <td>December 04, 2017</td>
+                           <td>300,000</td>
+                           <td>$ 0.65</td>
+                        </tr>
+                        <tr>
+                           <td>December 06, 2017</td>
+                           <td>300,000</td>
+                           <td>$ 0.7</td>
+                        </tr>
+                        <tr>
+                           <td>December 08, 2017</td>
+                           <td>300.000</td>
+                           <td>$ 0.75</td>
+                        </tr>
+                        <tr>
+                           <td>December 10, 2017</td>
+                           <td>300,000</td>
+                           <td>$ 0.8</td>
+                        </tr>
+                        <tr>
+                           <td>December 12, 2017</td>
+                           <td>300,000</td>
+                           <td>$ 0.85</td>
+                        </tr>
+                        <tr>
+                           <td>December 14, 2017</td>
+                           <td>300,000</td>
+                           <td>$ 0.9</td>
+                        </tr>
+                        <tr>
+                           <td>December 16, 2017</td>
+                           <td>300,000</td>
+                           <td>$ 1.0</td>
+                        </tr>
+                        <tr>
+                           <td>December 18, 2017</td>
+                           <td>300,000</td>
+                           <td>$ 1.1</td>
+                        </tr>
+                        <tr>
+                           <td>December 20, 2017</td>
+                           <td>300,000</td>
+                           <td>$ 1.2</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- modalWithdrawConfirmBTC -->
+      <div id="modalWithdrawConfirmBTC" class="modal fade" role="dialog" >
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Confirm  Withdrawal</h4>
+               </div>
+               <form id="Confirm-Submit-BTC" action="/account/balance/withdraw" method="POST">
+                <input type="hidden" name="type" value="BTC" />
+                  <div class="modal-body">
+                     <div class="row">
+                        <div class="col-sm-offset-1 col-sm-3">
+                           <h5>Currency:</h5>
+                        </div>
+                        <div class="col-sm-7">
+                           <div class="input-group"><input class="form-control text-left" name="currency" type="text" readonly="readonly"  id="currency_select" value=""><span class="input-group-addon">Currency</span></div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-sm-offset-1 col-sm-3">
+                           <h5 data-bind="text:wallet.labelWithdrawalBaseAddress">Address</h5>
+                        </div>
+                        <div class="col-sm-7">
+                           <div class="input-group"><input class="form-control text-left" name="address" type="text" readonly="readonly" value="0"><span class="input-group-addon" >ADDR</span></div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-sm-offset-1 col-sm-3">
+                           <h5>Quantity USD</h5>
+                        </div>
+                        <div class="col-sm-7">
+                           <div class="input-group"><input class="form-control text-left" type="text" readonly="readonly" name="amount_usd" id="amount_usd" value=""><span class="input-group-addon" >USD</span></div>
+                        </div>
+                     </div>
+                     <!-- <div class="row">
+                        <div class="col-sm-offset-1 col-sm-3">
+                           <h5>Quantity BTC:</h5>
+                        </div>
+                        <div class="col-sm-7">
+                           <div class="input-group"><input class="form-control text-left" name="amount_btc" type="text" readonly="readonly"  id="amount_btc" value="0"><span class="input-group-addon">BTC</span></div>
+                        </div>
+                     </div> -->
+                     
+                     <input type="hidden" class="token_crt" name="token_crt">
+                     <div class="alert alert alert-danger alert-dismissable" style="display: none;"><a class="close" data-dismiss="alert">×</a><span class="message"></span></div>
+                     {{#if_eq user.security.two_factor_auth.status '1'}}
+                     <blockquote style="margin: 0px;">
+                        <p style="font-size: 12px;">By inputting your two-factor authentication code, your withdrawal will process immediately.</p>
+                     </blockquote>
+                     <div class="row">
+                        <div class="col-sm-offset-1 col-sm-10" style="margin-top:10px"><input type="text" name="authenticator" class="form-control" placeholder="6-digit authentication code" style=""></div>
+                     </div>
+                     {{/if_eq}}
+                  </div>
+                  <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button><button type="submit" class="btn btn-twitter btn-fill confirm_modal_btc">Confirm</button></div>
+               </form>
+            </div>
+         </div>
+      </div>
+      
+      
+      <!-- modalWithdrawConfirmBTG -->
+      <div id="modalWithdrawConfirmBTG" class="modal fade" role="dialog" >
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Confirm Bitcoin Gold Withdrawal</h4>
+               </div>
+               <form id="Confirm-Submit-BTG" action="/account/balance/withdraw" method="POST">
+                <input type="hidden" name="type" value="BTG" />
+                  <div class="modal-body">
+                     <div class="row">
+                        <div class="col-sm-offset-1 col-sm-3">
+                           <h5 data-bind="text:wallet.labelWithdrawalBaseAddress">Address</h5>
+                        </div>
+                        <div class="col-sm-7">
+                           <div class="input-group"><input class="form-control text-left" name="address" type="text" readonly="readonly" value="0"><span class="input-group-addon" >ADDR</span></div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-sm-offset-1 col-sm-3">
+                           <h5>Transaction Fee:</h5>
+                        </div>
+                        <div class="col-sm-7">
+                           <div class="input-group"><input class="form-control text-left" type="text" readonly="readonly" value="0.001"><span class="input-group-addon" >BTG</span></div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-sm-offset-1 col-sm-3">
+                           <h5>Total:</h5>
+                        </div>
+                        <div class="col-sm-7">
+                           <div class="input-group"><input class="form-control text-left" name="amount" type="text" readonly="readonly" value="0"><span class="input-group-addon">BTG</span></div>
+                        </div>
+                     </div>
+                     <input type="hidden" class="token_crt" name="token_crt">
+                     <div class="alert alert alert-danger alert-dismissable" style="display: none;"><a class="close" data-dismiss="alert">×</a><span class="message"></span></div>
+                     {{#if_eq user.security.two_factor_auth.status '1'}}
+                     <blockquote style="margin: 0px;">
+                        <p style="font-size: 12px;">By inputting your two-factor authentication code, your withdrawal will process immediately.</p>
+                     </blockquote>
+                     <div class="row">
+                        <div class="col-sm-offset-1 col-sm-10" style="margin-top:10px"><input type="text" name="authenticator" class="form-control" placeholder="6-digit authentication code" style=""></div>
+                     </div>
+                     {{/if_eq}}
+                  </div>
+                  <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button><button type="submit" class="btn btn-twitter btn-fill confirm_modal_btc">Confirm</button></div>
+               </form>
+            </div>
+         </div>
+      </div>
+      <!-- End modalWithdrawConfirmBTG --><!-- Deposit STC -->
+      <div id="modalDepositCOIN" class="modal fade" role="dialog" >
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Deposit Santacoin (STC)</h4>
+               </div>
+               <div class="modal-body text-center">
+                  <div class="wallets"></div>
+                  <div class="clearfix"></div>
+               </div>
+               <div class="col-sm-12" data-bind="visible:wallet.showDepositCallOut">
+                <div class="bs-callout bs-callout-danger"><p><strong>Please send to the correct Santacoin address. We are not responsible for your lost.</strong></p></div>
+               </div>
+               
+               <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>
+            </div>
+         </div>
+      </div>
+
+
+      <div id="modalDeposit" class="modal fade" role="dialog" >
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Deposit</h4>
+               </div>
+               
+               <form method="post" name="frmDeposit" accept-charset="utf-8" id="frmDeposit" class="send-coin-form" autocomplete="off" novalidate="novalidate">
+                  <div class="modal-body">
+                     <h3 class="text-center">Please choose a deposit currency</h3>
+                     <div class="form-group">
+                        <label style="padding-left:0px" class="col-md-12">Currency</label>
+                        <div class="">
+                           <select name="currency" id="currency" class="form-control">
+                              <option value="WAVE">Wavecoin</option>
+                              <option value="BTC">Bitcoin</option>
+                              <option value="ETH">Ethereum</option>
+                              <option value="XRP">Ripple</option>
+                              <!-- <option value="BCH">Bitcoin Cash</option>
+                              <option value="BCN">Bytecoin</option>
+                              <option value="BITB">BitBean</option>
+                              <option value="DASH">DASH</option>
+                              <option value="DGB">DigiByte</option>
+                              <option value="DOGE">Dogecoin</option>
+                              <option value="ETC">Ether Classic</option>
+                              <option value="EXP">Expanse</option>
+                              <option value="NEO">NEO</option>
+                              <option value="PURA">PURA</option>
+                              <option value="QTUM">QTUM</option>
+                              <option value="XEM">NEM</option>
+                              <option value="XMR">Monero</option>
+                              <option value="XVG">VERGE</option>
+                              <option value="XZC">ZCoin</option>
+                              <option value="ZEN">ZenCash</option>
+                              <option value="BLK">BlackCoin</option> -->
+                           </select>
+                        </div>
+                     </div>
+                     <!-- <div class="form-group">
+                        <label style="padding-left:0px" class="col-md-12">Amount USD</label>
+                        <div class=""><input type="text" class="form-control amount_usd" name="amount" id="amount"></div>
+                     </div> -->
+                    
+                  </div>
+                  <div class="modal-footer" style="padding-right: 0px;"><button type="submit" class="btn btn-social btn-fill btn-twitter frmDeposit_Submit" data-type="coin"><i class="fa fa-cloud-upload" data-icon="fa-bitcoin" style="background-position: right;filter: brightness(0) invert(1)"></i> Confirm</button></div>
+               </form>
+               
+            </div>
+         </div>
+      </div>
+
+      <!-- End Deposit  --><!-- Withdraw bitcoin -->
+      <div id="modalWithdrawBTC" class="modal fade" role="dialog" >
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">CURRENTLY AVAILABLE: <b class="amount_btc">{{ formatusd user.balance}}</b> USD</h4>
+               </div>
+               
+              
+               <form method="post" name="frmWihtdrawBTC" accept-charset="utf-8" id="frmWihtdrawBTC" class="send-coin-form" autocomplete="off" novalidate="novalidate">
+                  <div class="modal-body">
+                     <div class="form-group">
+                        <label style="padding-left:0px" class="col-md-12">Currency</label>
+                        <div class="">
+                           <select name="currency" id="currency" class="form-control">
+                              <option value="WAVE">Wavecoin</option>
+                              <option value="BTC">Bitcoin</option>
+                              <option value="ETH">Ethereum</option>
+                              <option value="XRP">Ripple</option>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <label style="padding-left:0px" class="col-md-12">Address</label>
+                        <div class="input-group"><input type="text" class="form-control amount_usd" name="address" id="address"><span class="input-group-addon">ADDR</span></div>
+                     </div>
+                     <div class="form-group">
+                        <label style="padding-left:0px" class="col-md-12">Quantity USD</label>
+                        <div class="input-group"><input type="text" class="form-control amount_usd" name="amount" id="amount"><span class="input-group-addon">USD</span></div>
+                     </div>
+                     <!-- <div class="form-group">
+                        <label style="padding-left:0px" class="col-md-12">Quantity <span id="currency_select">BTC</span></label>
+                        <div class="input-group"><input type="text" class="form-control amount_btc" name="amount" id="amount_btc" readonly="true"><span class="input-group-addon">BTC</span></div>
+                     </div>
+                     
+                     <div class="form-group">
+                        <label style="padding-left:0px" class="col-md-12">Withdrawal (Fee: 2%)</label>
+                        <div class="input-group"><input readonly type="text" class="form-control amount_usd" name="amount_withdraw" id="amount_withdraw"><span class="input-group-addon">USD</span></div>
+                     </div> -->
+                    
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="modal-footer"><button type="submit" class="btn btn-social btn-fill btn-twitter frmWihtdrawBCH_Submit" data-type="coin"><i class="fa fa-cloud-upload" data-icon="fa-bitcoin" style="background-position: right;filter: brightness(0) invert(1)"></i> Withdrawal</button></div>
+               </form>
+               
+            </div>
+         </div>
+      </div>
+
+      <div id="modalTransferConfirm" class="modal fade" role="dialog" >
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Confirm Transfer Account</h4>
+               </div>
+               <form id="Confirm-Submit-Transfer" action="/account/balance/transfer" method="POST">
+                  <div class="modal-body">
+                     <div class="row">
+                        <div class="col-sm-offset-1 col-sm-3">
+                           <h5>Account</h5>
+                        </div>
+                        <div class="col-sm-7">
+                           <div class="input-group"><input class="form-control text-left" name="account" type="text" readonly="readonly" value="0"><span class="input-group-addon" >EMAIL</span></div>
+                        </div>
+                     </div>
+                     
+                     <div class="row">
+                        <div class="col-sm-offset-1 col-sm-3">
+                           <h5>Amount USD:</h5>
+                        </div>
+                        <div class="col-sm-7">
+                           <div class="input-group"><input class="form-control text-left" name="amount" type="text" readonly="readonly" value="0"><span class="input-group-addon">USD</span></div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-sm-offset-1 col-sm-3">
+                           <h5>Content Transfer:</h5>
+                        </div>
+                        <div class="col-sm-7">
+                           <div class="">
+                           <textarea style="width: 100%; height: 60px;padding: 5px 15px;" name="content" readonly="readonly" id="contents"></textarea>
+                           </div>
+                        </div>
+                     </div>
+                     <input type="hidden" class="token_crt" name="token_crt">
+                     <div class="alert alert alert-danger alert-dismissable" style="display: none;"><a class="close" data-dismiss="alert">×</a><span class="message"></span></div>
+                     {{#if_eq user.security.two_factor_auth.status '1'}}
+                     <blockquote style="margin: 0px;">
+                        <p style="font-size: 12px;">By inputting your two-factor authentication code, your withdrawal will process immediately.</p>
+                     </blockquote>
+                     <div class="row">
+                        <div class="col-sm-offset-1 col-sm-10" style="margin-top:10px"><input type="text" name="authenticator" class="form-control" placeholder="6-digit authentication code" style=""></div>
+                     </div>
+                     {{/if_eq}}
+                  </div>
+                  <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button><button type="submit" class="btn btn-twitter btn-fill confirm_modal_btc">Confirm</button></div>
+               </form>
+            </div>
+         </div>
+      </div>
+      <div id="modalTransferAcount" class="modal fade" role="dialog" >
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">CURRENTLY AVAILABLE: <b class="amount_btc">{{ formatusd user.balance}}</b> USD</h4>
+               </div>
+               
+              
+               <form method="post" name="frmTransferAcount" accept-charset="utf-8" id="frmTransferAcount" class="send-coin-form" autocomplete="off" novalidate="novalidate">
+                  <div class="modal-body">
+                     <div class="form-group">
+                        <label style="padding-left:0px" class="col-md-12">Account</label>
+                        <div class="input-group"><input type="text" class="form-control amount_usd" name="account" id="account"><span class="input-group-addon">Email</span></div>
+                     </div>
+                     <div class="form-group">
+                        <label style="padding-left:0px" class="col-md-12">Quantity USD</label>
+                        <div class="input-group"><input type="text" class="form-control amount_usd" name="amount" id="amount"><span class="input-group-addon">USD</span></div>
+                     </div>
+                     <div class="form-group">
+                        <label style="padding-left:0px" class="col-md-12">Content Transfer</label>
+                        <div class="">
+                        <textarea style="width: 100%; height: 60px; padding: 5px 15px;" type="text" class=" " id="content" name="content" ></textarea></div>
+                     </div>
+                    
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="modal-footer"><button type="submit" class="btn btn-social btn-fill btn-twitter frmWihtdrawBCH_Submit" data-type="coin"><i class="fa fa-cloud-upload" data-icon="fa-bitcoin" style="background-position: right;filter: brightness(0) invert(1)"></i> Transfer</button></div>
+               </form>
+               
+            </div>
+         </div>
+      </div>
+
+      <!-- End Withdraw bitcoin --><!-- Withdraw bitcoin -->
+      <div id="modalWithdrawBTG" class="modal fade" role="dialog" >
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">CURRENTLY AVAILABLE:<b class="amount_bch"> {{ satoshi user.balance.bitcoingold_wallet.available}}</b> BTG</h4>
+               </div>
+               {{#if_eq check_order.btg true}}
+                  <div class="modal-body">
+                     <h3 class="text-center">Pending Order ICO</h3>
+                  </div>
+               {{else}}
+               <form method="post" action="/account/balance/withdraw" accept-charset="utf-8" id="frmWihtdrawBTG" class="send-coin-form" autocomplete="off" novalidate="novalidate">
+                  <div class="modal-body">
+                     <div class="form-group">
+                        <label style="padding-left:0px" class="col-md-12">Address</label>
+                        <div class="input-group"><input type="text" class="form-control amount_usd" name="address" id="address"><span class="input-group-addon">ADDR</span></div>
+                     </div>
+                     <div class="form-group">
+                        <label style="padding-left:0px" class="col-md-12">Quantity</label>
+                        <div class="input-group"><input type="text" class="form-control amount_usd" name="amount" id="amount"><span class="input-group-addon">BTG</span></div>
+                     </div>
+                     <div class="form-group">
+                        <label style="padding-left:0px" class="col-md-12">Tx Fee</label>
+                        <div class="input-group"><input type="text" readonly class="form-control amount_usd" name="fee" id="fee" value="0.001"><span class="input-group-addon">BTG</span></div>
+                     </div>
+                     <div class="form-group">
+                        <label style="padding-left:0px" class="col-md-12">Withdrawal</label>
+                        <div class="input-group"><input readonly type="text" class="form-control amount_usd" name="amount_withdraw" id="amount_withdraw"><span class="input-group-addon">BTG</span></div>
+                     </div>
+                     
+                  </div>
+                  <div class="modal-footer"><button type="submit" class="btn btn-social btn-fill btn-twitter frmWihtdrawBCH_Submit" data-type="coin"><i class="fa fa-cloud-upload" data-icon="fa-bitcoin" style="background-position: right;filter: brightness(0) invert(1)"></i> Withdrawal</button></div>
+               </form>
+               {{/if_eq}}
+            </div>
+         </div>
+      </div>
+      <!-- End Withdraw bitcoin --><!-- Withdraw bitcoin -->
+      <div id="modalWithdrawCOIN" class="modal fade" role="dialog" >
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">CURRENTLY AVAILABLE:<b class="amount_COIN"> {{satoshi user.balance.coin_wallet.available}}</b> STC</h4>
+               </div>
+               <form method="post" action="/account/balance/withdraw-stc" accept-charset="utf-8" id="frmWihtdrawCOIN" class="send-coin-form" autocomplete="off" novalidate="novalidate">
+                  <div class="modal-body">
+                     <div class="form-group">
+                        <label style="padding-left:0px" class="col-md-12">Address</label>
+                        <div class="input-group"><input type="text" class="form-control amount_usd" name="address" id="address"><span class="input-group-addon">ADDR</span></div>
+                     </div>
+                     <div class="form-group">
+                        <label style="padding-left:0px" class="col-md-12">Quantity</label>
+                        <div class="input-group"><input type="text" class="form-control amount_usd" name="amount" id="amount"><span class="input-group-addon">STC</span></div>
+                     </div>
+                     <div class="form-group">
+                        <label style="padding-left:0px" class="col-md-12">Tx Fee</label>
+                        <div class="input-group"><input type="text" readonly class="form-control amount_usd" name="fee" value="0.03" ><span class="input-group-addon">STC</span></div>
+                     </div>
+                     <div class="form-group">
+                        <label style="padding-left:0px" class="col-md-12">Withdrawal</label>
+                        <div class="input-group"><input readonly type="text" class="form-control amount_usd" name="amount_withdraw" id="amount_withdraw"><span class="input-group-addon">STC</span></div>
+                     </div>
+                     
+                  </div>
+                  <div class="modal-footer"><button type="submit" class="btn btn-social btn-fill btn-twitter frmWihtdrawBCH_Submit" data-type="coin"><i class="fa fa-cloud-upload" data-icon="fa-bitcoin" style="background-position: right;filter: brightness(0) invert(1)"></i> withdrawal</button></div>
+               </form>
+            </div>
+         </div>
+      </div>
+      <!-- End Withdraw bitcoin --><!-- Modal Deposit-->
+      <div class="modal fade" id="modalExchange" tabindex="-1" role="dialog" aria-labelledby="ModalDeposit-label">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="ModalDeposit-label">Santa Exchange</h4>
+               </div>
+               <div class="modal-body">
+                  <div class="text-center">
+                     <div class="modal-body">
+                        <h1>Coming Soon</h1>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script src="/static/vendors/jquery-3.1.1.min.js" type="text/javascript"></script><script src="/static/vendors/jquery-ui.min.js" type="text/javascript"></script><script src="/static/vendors/bootstrap.min.js" type="text/javascript"></script><script src="/static/vendors/material.min.js" type="text/javascript"></script><script src="/static/vendors/perfect-scrollbar.jquery.min.js" type="text/javascript"></script><script src="/static/vendors/jquery.bootstrap-wizard.js"></script><script src="/static/vendors/bootstrap-notify.js"></script><script src="/static/vendors/jquery-jvectormap.js"></script><script src="/static/vendors/jquery.datatables.js"></script><script src="/static/vendors/sweetalert/js/sweetalert2.min.js"></script><script src="/static/vendors/sweetalert/js/swal-forms.js"></script><script src="/static/vendors/jasny-bootstrap.min.js"></script><script src="/static/vendors/jquery.tagsinput.js"></script><script src="/static/js/amaze.js"></script><script src="/static/js/demo.js"></script><script type="text/javascript"> $(document).ready(function() {$('#datatables').DataTable({"order": [[ 1, "desc" ]], "pagingType": "full_numbers", "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"] ], responsive: true, language: {search: "_INPUT_", searchPlaceholder: "Search records", } }); var table = $('#datatables').DataTable(); $('.card .material-datatables label').addClass('form-group'); }); $(document).ready(function() {$('#datatables-transaction').DataTable({"order": [[ 0, "desc" ]], autoWidth: false, searching: false, ordering: true, responsive: true, lengthChange: false, destroy: true, paging: true, info: false, }); var table = $('#datatables-transaction').DataTable(); $('.card .material-datatables label').addClass('form-group'); });</script><script src="/static/js/clipboard.min.js"></script><script type="text/javascript" src="/js/jqBootstrapValidation.js"></script><script src="/static/js/main.js"></script><script src="/static/js/jstree.min.js"></script><script>var clipboard = new Clipboard('.copy');clipboard.on('success', function(e) { return true;});clipboard.on('error', function(e) {return false;});</script><script src="/static/js/jquery.form.js" type="text/javascript"></script> 
+      {{#if_eq menu "balance"}}
+      <script src="/static/js/balance.js" type="text/javascript"></script>
+
+      {{/if_eq}} 
+      {{#if_eq menu "affiliate"}}
+      <script src="/static/js/balance.js" type="text/javascript"></script>
+      {{/if_eq}} 
+      
+      {{#if_eq menu "ico"}}<script src='https://www.google.com/recaptcha/api.js'></script> {{/if_eq}}<script src="/static/js/jQuery.yuukCountdown.js"></script>
+
+      {{#if_eq menu "support"}}
+      <script src='https://www.google.com/recaptcha/api.js'></script>
+      <script src="/static/js/support.js"></script>
+      {{/if_eq}}
+
+      <script src="/static/js/account.js" type="text/javascript"></script>
+      
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="/static/js/exchange.js"></script>
+      <script src="/js/sweetalert.js"></script> 
+      <script src="/static/exchange/angular.js"></script>
+      <script src="/static/exchange/ui-bootstrap-tpls-0.11.0.js"></script>
+      <script src="/static/exchange/controller.js"></script>
+      <script src="/static/js/jquery.toast.js" type="text/javascript"></script>
+      
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+      <script type="text/javascript">
+         $.fn.dataTable.ext.search.push(
+            function( settings, data, dataIndex ) {
+               var min  = $('.History_BuySell_Account_ID #min').val();
+               var max  = $('.History_BuySell_Account_ID #max').val();
+               var createdAt = data[1] || 0; 
+               if  (( min == "" || max == "" ) || ( 
+                  moment(createdAt).isSameOrAfter(min+' 00:00 AM') && moment(createdAt).isSameOrBefore(max+' 11:59 PM') )) 
+               {
+                    return true;
+               }
+               return false;
+            }
+        );
+        /* $.fn.dataTable.ext.search.push(
+            function( settings, data, dataIndex ) {
+               var min  = $('.History_BuySell_Account_IDS #mins').val();
+               var max  = $('.History_BuySell_Account_IDS #maxs').val();
+               var createdAt = data[1] || 0; 
+               if  (( min == "" || max == "" ) || ( 
+                  moment(createdAt).isSameOrAfter(min+' 00:00 AM') && moment(createdAt).isSameOrBefore(max+' 11:59 PM') )) 
+               {
+                    return true;
+               }
+               return false;
+            }
+        );*/
+         $.fn.dataTable.Api.register( 'sum()', function ( ) {
+             return this.flatten().reduce( function ( a, b ) {
+                 if ( typeof a === 'string' ) {
+                     a = a.replace(/[^\d.-]/g, '') * 1;
+                 }
+                 if ( typeof b === 'string' ) {
+                     b = b.replace(/[^\d.-]/g, '') * 1;
+                 }
+          
+                 return a + b;
+             }, 0 );
+         } );
+         $(document).ready(function() {
+             var table_History_BuySell_Account_ID = $('#History_BuySell_Account_ID').DataTable({
+                  
+                  "footerCallback": function(row, data, start, end, display) {
+                      var api = this.api(),
+                          data;
+
+                      var intVal = function(i) {
+                          return typeof i === 'string' ?
+                              i.replace(/[\$,]/g, '') * 1 :
+                              typeof i === 'number' ?
+                              i : 0;
+                      };
+                      total = api
+                          .column(4, { page: 'current'})
+                          .data()
+                          .reduce(function(a, b) {
+                              return intVal(a) + intVal(b);
+                          }, 0);
+                      totals = api
+                          .column(5, { page: 'current'})
+                          .data()
+                          .reduce(function(a, b) {
+                              return intVal(a) + intVal(b);
+                          }, 0);
+
+                      $(api.column(4).footer()).html(
+                          parseFloat(total).toFixed(2)
+                      );
+                      $(api.column(5).footer()).html(
+                          parseFloat(totals).toFixed(2) > 0 ? '<span style="color: #2196F3">'+parseFloat(totals).toFixed(2)+'</span>' : '<span style="color: red">'+parseFloat(totals).toFixed(2)+'</span>'
+
+                      );
+                  }
+               });
+             $('.History_BuySell_Account_ID #min,.History_BuySell_Account_ID #max').change(function() {
+                 table_History_BuySell_Account_ID.draw();
+             });
+
+
+
+             /**/
+             /*var table_History_BuySell_Account_IDS = $('#History_BuySell_Account_IDS').DataTable({
+                  "footerCallback": function(row, data, start, end, display) {
+                      var api = this.api(),
+                          data;
+
+                      var intVal = function(i) {
+                          return typeof i === 'string' ?
+                              i.replace(/[\$,]/g, '') * 1 :
+                              typeof i === 'number' ?
+                              i : 0;
+                      };
+                      total = api
+                          .column(3, { page: 'current'})
+                          .data()
+                          .reduce(function(a, b) {
+                              return intVal(a) + intVal(b);
+                          }, 0);
+                      totals = api
+                          .column(4, { page: 'current'})
+                          .data()
+                          .reduce(function(a, b) {
+                              return intVal(a) + intVal(b);
+                          }, 0);
+
+                      $(api.column(3).footer()).html(
+                          parseFloat(total).toFixed(2)
+                      );
+                      $(api.column(4).footer()).html(
+                          parseFloat(totals).toFixed(2) > 0 ? '<span style="color: #2196F3">'+parseFloat(totals).toFixed(2)+'</span>' : '<span style="color: red">'+parseFloat(totals).toFixed(2)+'</span>'
+
+                      );
+                  }
+               });
+             $('.History_BuySell_Account_IDS #min,.History_BuySell_Account_IDS #max').change(function() {
+                 table_History_BuySell_Account_IDS.draw();
+             });*/
+
+             var table = $('#datatablesss').DataTable()
+         });
+         function UserGetPendingMillionaireIncome()
+          {
+              
+              $('#Millionaire_Amount').html(0).css({'color': 'red', 'font-size': '30px'});
+          }
+          /*var setHeight = $(this).outerHeight(); 
+          // returns e.g. 687
+
+          $("#loadings").css({'height': setHeight+"px" });*/
+      </script>
+
+   </body>
+</html>

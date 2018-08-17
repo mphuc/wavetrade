@@ -1,0 +1,59 @@
+<div class="content wallet" style="margin-bottom: 80px;">
+   <input type="hidden" id="price_btc" name="price_btc" value="{{ticker.btc}}">
+   <div class="container-fluid" >
+      <div class="row">
+         <div class="">
+            <div class="">
+               <div id="count_downs"></div>
+               <div class="content balance_page">
+                  <h2 class="text-center">BALANCES, DEPOSITS & WITHDRAWS</h2>
+                  <h3 class="text-center account_balance">Real Account Balance: <span>{{formatusd user.balance}} USD</span></h3>
+                  <div class="text-center button_dw">
+
+                     <button style="margin-bottom: 10px;" data-toggle="modal" data-target="#modalDeposit" class="btn btn-social "><i class="fa fa-cloud-download"></i> Deposit</button>
+                     <button style="margin-bottom: 10px;" data-toggle="modal"  data-target="#modalWithdrawBTC" class="btn btn-social   crt_button"><i class="fa fa-cloud-upload"></i> Withdraw</button>
+
+                     <button style="margin-bottom: 10px;" data-toggle="modal" data-target="#modalTransferAcount" class="btn btn-social   crt_button"><i class="fa fa-cloud-upload"></i> Transfer Account</button>
+
+                  </div>
+                  
+                  <div class="clearfix" style="margin-top: 50px;"></div>
+                  <div class="row">
+                     <!-- <div class="col-md-6">
+                        <div class="padding_balance">
+                           <h4 style="font-weight: 500"><i class="fa fa-paperclip"></i> PENDING DEPOSITS</h4>
+                           <div id="history-deposit-pending"></div>
+                        </div>
+                     </div> -->
+                     <div class="col-md-12">
+                        <div class="padding_balance">
+                           <h4 style="font-weight: 500"><i class="fa fa-paperclip"></i> DEPOSIT HISTORY</h4>
+                           <div id="history-deposit-finish"></div>
+                        </div>
+                     </div>
+                     <div class="col-md-12">
+                        <div class="padding_balance">
+                           <h4 style="font-weight: 500"><i class="fa fa-paperclip"></i> PENDING WITHDRAWALS</h4>
+                           <div id="history-withdraw-pendding"></div>
+                        </div>
+                     </div>
+                     <div class="col-md-12">
+                        <div class="padding_balance">
+                           <h4 style="font-weight: 500"><i class="fa fa-paperclip"></i> WITHDRAWAL HISTORY</h4>
+                           <div id="history-withdraw-finish"></div>
+                        </div>
+                     </div>
+
+                     <div class="col-md-12">
+                        <div class="padding_balance">
+                           <h4 style="font-weight: 500"><i class="fa fa-paperclip"></i> TRANSFER HISTORY</h4>
+                           <div id="history-transfer"></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

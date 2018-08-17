@@ -1,0 +1,38 @@
+<section class="typePage">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-4 col-md-push-4">
+            <div class="typeBlock wow animated slideInLeft">
+               <div class="text-center">
+                  <img src="/img/logo-bt.png" height="90" style="margin-top: 20px;">
+               </div>   
+               <form class="pageLoginForm" id="frmLogin" action="/SignIn" method="POST">
+
+               <input type="hidden" name="form_id" value="15229341345895"><input type="hidden" name="form_token" value="0f3197b7ebb98f9d14875b0a76836b39">
+                                 <input type=hidden name=a value='do_login'>
+               <input type=hidden name=follow value=''>
+               <input type=hidden name=follow_id value=''>
+                  <h2 class="text-center">Login</h2>
+                  <div class="form-group">
+                     <input type="text" name=email value='' placeholder="Login" class="logInput" autofocus="autofocus">
+                  </div>
+                  <div class="form-group">
+                     <input type="password" name=password value='' placeholder="Password" class="logInput logPassword">
+                  </div>
+                  <div class="form-group captBlock">
+                     <div class="capcha_google">
+                           <div class="g-recaptcha" data-theme="light"  data-sitekey="6LcYb1MUAAAAAGoDN4LWwrXjj8yHa3gColQRPlGa" data-callback="onSubmit"></div>
+                        </div>
+                  </div>
+                  <input type="submit" value="ENTER" class="formSubmitButton">
+                  <p class="">
+                     <a class="text-left" style="float: left;" href="/forgot-password">Forgot your password?</a>
+                     <a class="text-right" style="float: right;" href="/signup">Create Account</a>
+                  </p>
+               </form>
+               
+            </div>
+         </div>
+      </div>
+   </div>
+</section>

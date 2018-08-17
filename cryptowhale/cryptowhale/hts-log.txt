@@ -1,0 +1,42 @@
+HTTrack3.48-24 launched on Thu, 05 Apr 2018 20:15:21 at https://cryptowhale.biz +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/*
+(webhttrack -q -%i -w https://cryptowhale.biz -O "/home/user/websites/cryptowhale" -n -%P -N0 -s2 -p7 -D -a -K0 -c4 -%k -A25000 -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -%s -%u )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+20:16:26	Warning: 	HTML file (426 bytes) retransferred due to lack of cache: https://cryptowhale.biz/assets/favicons/site.webmanifest
+20:17:36	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://cryptowhale.biz/assets/js/jquery-1.11.2.min.js
+20:17:37	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://cryptowhale.biz/assets/js/bootstrap.min.js
+20:17:40	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://cryptowhale.biz/assets/js/owl.carousel.min.js
+20:17:40	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://cryptowhale.biz/assets/js/jquery.matchHeight-min.js
+20:17:40	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://cryptowhale.biz/assets/js/jquery.magnific-popup.min.js
+20:17:41	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://cryptowhale.biz/assets/js/highcharts.js
+20:17:42	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://cryptowhale.biz/assets/js/clipboard.min.js
+20:17:42	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://cryptowhale.biz/assets/js/parallax.min.js
+20:17:42	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://cryptowhale.biz/assets/js/wow.min.js
+20:17:43	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://momentjs.com/static/js/global.js
+20:17:45	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://cryptowhale.biz/assets/js/main.js
+20:17:56	Warning: 	HTML file (183 bytes) retransferred due to lack of cache: https://cryptowhale.biz/?a=show_validation_image&PHPSESSID=m6g5n7si1o851vmctpo35sc021&rand=1344898915
+20:18:50	Warning: 	HTML file (27812 bytes) retransferred due to lack of cache: https://cryptowhale.biz/?a=home
+20:18:51	Warning: 	HTML file (19702 bytes) retransferred due to lack of cache: https://cryptowhale.biz/?a=signup
+20:18:53	Warning: 	HTML file (187 bytes) retransferred due to lack of cache: https://cryptowhale.biz/?a=show_validation_image&PHPSESSID=m6g5n7si1o851vmctpo35sc021&rand=432997712
+20:18:54	Warning: 	File not parsed, looks like binary: https://cryptowhale.biz/assets/fonts/glyphicons-halflings-regular.woff2
+20:18:54	Error: 	"Not Found" (404) at link https://cryptowhale.biz/assets/fonts/glyphicons-halflings-regular.svg (from https://cryptowhale.biz/assets/css/bootstrap.min.css)
+20:18:54	Warning: 	File not parsed, looks like binary: https://cryptowhale.biz/assets/fonts/AlegreyaSans-Bold.woff2
+20:18:54	Warning: 	File not parsed, looks like binary: https://cryptowhale.biz/assets/fonts/AlegreyaSans-Regular.woff2
+20:18:54	Warning: 	File not parsed, looks like binary: https://cryptowhale.biz/assets/fonts/OpenSans-Light.woff2
+20:18:54	Warning: 	File not parsed, looks like binary: https://cryptowhale.biz/assets/fonts/OpenSans-ExtraBoldItalic.woff2
+20:18:55	Warning: 	File not parsed, looks like binary: https://cryptowhale.biz/assets/fonts/OpenSans-Bold.woff2
+20:18:55	Warning: 	File not parsed, looks like binary: https://cryptowhale.biz/assets/fonts/OpenSans-BoldItalic.woff2
+20:18:56	Warning: 	File not parsed, looks like binary: https://cryptowhale.biz/assets/fonts/OpenSans-Italic.woff2
+20:18:56	Warning: 	File not parsed, looks like binary: https://cryptowhale.biz/assets/fonts/OpenSans-SemiBold.woff2
+20:18:57	Warning: 	File not parsed, looks like binary: https://cryptowhale.biz/assets/fonts/OpenSans-LightItalic.woff2
+20:18:57	Warning: 	File not parsed, looks like binary: https://cryptowhale.biz/assets/fonts/OpenSans-SemiBoldItalic.woff2
+20:18:57	Warning: 	File not parsed, looks like binary: https://cryptowhale.biz/assets/fonts/OpenSans-Regular.woff2
+20:18:58	Warning: 	File not parsed, looks like binary: https://cryptowhale.biz/assets/fonts/OpenSans-ExtraBold.woff2
+20:18:58	Error: 	"Not Found" (404) at link https://cryptowhale.biz/assets/css/owl.video.play.png (from https://cryptowhale.biz/assets/css/owl.carousel.min.css)
+
+HTTrack Website Copier/3.48-24 mirror complete in 3 minutes 37 seconds : 189 links scanned, 281 files written (35852623 bytes overall) [14864051 bytes received at 68497 bytes/sec], 16987555 bytes transferred using HTTP compression in 54 files, ratio 13%, 3.2 requests per connection
+(2 errors, 29 warnings, 0 messages)

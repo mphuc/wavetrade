@@ -1,0 +1,98 @@
+<div class="content">
+   <div class="container-fluid">
+      <div class="row">
+        <div class="clearfix"></div>
+          
+         <div class="col-md-12">
+            <div class="card">
+               <div class="content">
+                   <h3 class="text-center"> History Buy</h3>
+                  
+                  <div class="material-datatables" style="width: 100%; overflow-x: scroll;">
+                     
+                     <table id="" class="History_BuySell table table-striped table-no-bordered table-hover" style="width:100%;cellspacing:0;" >
+                           
+                           <thead>
+                              <tr>
+                                  <th class="text-center">Date</th>
+                                 <th class="text-center">Account ID</th>
+                                 <th class="text-center">MarketName</th>
+                                 <th class="text-center">Amount</th>
+                                 
+                              </tr>
+                           </thead>
+                           <tbody>
+                              {{#each data_buy}}
+                              <tr>
+                                 <td class="text-center">{{prettifyDate this.date}}</td>
+                                 <td class="text-center"><a href="/qwertyuiop/admin/history-buysell/{{this.account_id}}">{{this.account_id}}</a></td>
+                                 <td class="text-center">{{this.MarketName}}</td>
+                                 <td class="text-center">{{this.amount}}</td>
+                                 
+                              </tr>
+                              {{/each}}
+                           </tbody>
+                           <tfoot>
+                              <tr>
+                                 
+                                 <th></th>
+                                  <th >Total:</th>
+                                  
+                                  <th class="text-right"></th>
+                                  <th class="text-right"></th>
+                              </tr>
+                          </tfoot>
+                        </table>
+                  </div>
+               </div>
+
+               <div class="clearfix"></div>
+
+
+               <div class="content">
+                   <h3 class="text-center"> History Sell</h3>
+                  
+                  <div class="material-datatables" style="width: 100%; overflow-x: scroll;">
+                     
+                     <table id="" class="History_BuySell table table-striped table-no-bordered table-hover" style="width:100%;cellspacing:0;" >
+                           
+                           <thead>
+                              <tr>
+                                  <th class="text-center">Date</th>
+                                 <th class="text-center">Account ID</th>
+                                 <th class="text-center">MarketName</th>
+                                 <th class="text-center">Amount</th>
+                                 
+                              </tr>
+                           </thead>
+                           <tbody>
+                              {{#each data_sell}}
+                              <tr>
+                                 <td class="text-center">{{prettifyDate this.date}}</td>
+                                 <td class="text-center"><a href="/qwertyuiop/admin/history-buysell/{{this.account_id}}"> {{this.account_id}}</a></td>
+                                 <td class="text-center">{{this.MarketName}}</td>
+                                 <td class="text-center">{{this.amount}}</td>
+                                 
+                              </tr>
+                              {{/each}}
+                           </tbody>
+                           <tfoot>
+                              <tr>
+                                 
+                                 <th></th>
+                                  <th >Total:</th>
+                                  
+                                  <th class="text-right"></th>
+                                  <th class="text-right"></th>
+                              </tr>
+                          </tfoot>
+                        </table>
+                  </div>
+               </div>
+            </div>
+
+
+         </div>
+      </div>
+   </div>
+</div>

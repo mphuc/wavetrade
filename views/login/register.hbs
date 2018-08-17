@@ -1,0 +1,90 @@
+<section class="typePage">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-4 col-md-push-4">
+            <div class="text-center slideInLeft">
+               <img src="/img/logo-bt.png" height="90" >
+            </div> 
+            <div class="typeBlock wow animated slideInRight">
+               <form class="pageLoginForm" id="frmRegister" action="/signUp" method="POST">
+               <input type="hidden" name="form_id" value="15229341345895"><input type="hidden" name="form_token" value="0f3197b7ebb98f9d14875b0a76836b39">
+                                 <input type=hidden name=a value='do_login'>
+               <input type=hidden name=follow value=''>
+               <input type=hidden name=follow_id value=''>
+               <input type="hidden" name="sponsor" id="sponsor" value="{{node}}">
+                  <h2 class="text-center">Register</h2>
+                  <div class="form-group">
+                     <input type="text" name='username' value='' placeholder="Username" class="logInput" autofocus="autofocus">
+                  </div>
+                  <div class="form-group">
+                     <input type="text" name='email' value='' placeholder="Email" class="logInput" autofocus="autofocus">
+                  </div>
+                  <div class="form-group">
+                     <input type="password" name='password' value='' placeholder="Password" class="logInput logPassword">
+                  </div>
+                  <div class="form-group">
+                     <input type="password" name='cfpassword' id="password_input" value='' placeholder="Confirm Password" class="logInput logPassword">
+                  </div>
+                  <div class="form-group captBlock">
+                     <div class="capcha_google">
+                           <div class="g-recaptcha" data-theme="light"  data-sitekey="6LcYb1MUAAAAAGoDN4LWwrXjj8yHa3gColQRPlGa" data-callback="onSubmit"></div>
+                        </div>
+                  </div>
+                  <input type="submit" value="ENTER" class="formSubmitButton">
+                  <p class="text-center">Do you already have an account? <a href="/signin">Login account?</a></p>
+               </form>
+               
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+
+<!-- <div class="head">
+   <div class="logo page_register">
+      <a class="site_logo" href="/" id="logo-home">
+         
+         <img src="home/images/logo.png" alt="logo" class="img-responsive ">
+         
+      </a>
+      
+   </div>
+   <div class="login">
+      <div class="sap_tabs">
+         <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+            <h2 class="text-center">Create Account</h2>
+            <span class="pull-right create_account"></span>
+            <div class="clearfix"></div>
+            <div class="resp-tabs-container">
+               <div class="">
+                  <div class="login-top">
+                     <form id="frmRegister" action="/signUp" method="POST">
+                       
+                        <input type="text" class="email" placeholder="Email" name="email"/>
+                        <input type="password" class="password" placeholder="Password" id="password_input" name="password"/>  
+                        <input type="password" class="password" placeholder="Confirm Password" name="cfpassword"/>   
+                        <div class="capcha_google">
+                           <div class="g-recaptcha" data-theme="light" style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;" data-sitekey="6LcYb1MUAAAAAGoDN4LWwrXjj8yHa3gColQRPlGa" data-callback="onSubmit" ></div>
+                        </div>
+                        <input type="hidden" name="Sponsor" id="Sponsor" />
+                        <div class="login-bottom login-bottom1">
+                           <div class="submit">
+                              <input type="submit" value="Create Account"/>
+                           </div>
+                           <div class="clear"></div>
+                        </div>
+                  </div>
+               
+                  </form>
+                  
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="clear"></div>
+</div>
+<div class="account text-center">
+   <p>Do you already have an account? <a href="/signin">Login account?</a></p>
+   <div class="clear"></div>
+</div> -->

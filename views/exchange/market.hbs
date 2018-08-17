@@ -1,0 +1,393 @@
+
+<div id="exchange_option" class="notranslate">
+
+
+<div class="header_exchange" >
+   <div class="col-md-2 text-center">
+      <a href="/account/dashboard">
+         <img src="/img/logo-right.png" style="margin-top: -7px;" width="120" alt="logo" class="img-responsive logos">  
+      </a>
+   </div>
+   <div class="col-md-2 text-center hidden-xs hidden-sm">
+      
+      <div ng-controller="CtrCounDown" class="pull-right" style="margin-top: -1px; ">
+      <!-- <p style="color: #1e90ff; float: left; font-size: 16px; margin-top: 4px; margin-right: 20px;">{[{date_now}]}</p> -->
+         <div class="time-to-bet {[{type}]}" style="float: left; margin-left: 20px;">
+            <span id="time-to-bet-text-1" class="green-text"> </span>
+            <div id="time-to-bet-number-1" class="timer-counter green-timer">{[{second}]}</div>
+         </div>
+      </div>
+
+   </div>
+   <div class="col-md-4 col-xs-12 text-center ">
+      <a id="is-play-sound" data-status="0" href="#" class="btn header-btn">
+      <i  class="glyphicon glyphicon-volume-up"></i>
+      </a>
+      <a href="/account/history" class="btn header-btn">
+      <i class="fa fa-history"></i>
+      </a>
+      <a href="/logout" class="btn header-btn">
+      <i class="fa fa-power-off"></i>
+      </a>
+   </div>
+   <div class="col-md-2 col-xs-6 text-center">
+      <div class="CtrBalanceUser" ng-controller="CtrBalanceUser">
+         <div  >
+            <h4 class="text-center">
+               <img src="/img/balance.png" class="hidden-xs" width="30"> <span class="balance">{[{balance | formatNumber}]} USD</span>
+            </h4>
+         </div>
+      </div>
+   </div>
+   <div class="col-md-2 col-xs-6 text-right right_header_top ">
+   <i class="far fa-moon"></i>
+
+
+   <span class="light_night"><img src="/img/sun.svg"></span>
+      <b class="account-number">
+      {{partner.account_id}} - {{#if_eq partner.type '0'}}Real{{else}}Demo{{/if_eq}}
+      </b>
+      
+   </div>
+</div>
+<div class="clearfix"></div>
+<input type="hidden" id="_ID_" value="{{partner.account_id}}" name="">
+<div class="col-md-6"  id='exchange_one'>
+   <input type="hidden" value="{{exchange1}}" name="MarketName">
+   <div class="exchange-page">
+      <div class="container-fluid" >
+         <div class="row" ng-controller="CtrBuySellUser_One">
+            <div class="clearfix"></div>
+            <div class="header-trader">
+               <div class="pull-left">
+
+               <select id="change_curency_one" ng-model="currency" ng-change="update_currency()">  
+                  <option value="COIN">COIN</option>
+                  <option value="FOREX" >FOREX</option> 
+               </select>
+
+               <select ng-model="item_update" id="change_exchange_one" ng-change="update_exchange()"> 
+                  <option ng-repeat="item_coin in sizes_coin" value="{[{item_coin[0]}]}">{[{item_coin[1]}]}</option> 
+               </select>
+
+               </div>
+               <div class="col-md-2 text-left hidden-md hidden-lg">
+                  <div ng-controller="CtrCounDown" class="pull-right" style="margin-top: -3px">
+                     <div class="time-to-bet {[{type}]}" >
+                        <span id="time-to-bet-text-1" class="green-text"> </span>
+                        <div id="time-to-bet-number-1" class="timer-counter green-timer">{[{second}]}</div>
+                     </div>
+                  </div>
+               </div>
+               <div class="pull-right text-right">
+                  <div class="text-center pull-right" style="width: 100px">
+                     <span class="info-text sell">SELL: </span><span id="sell1" class="info-text money">{[{sum_order_sell | formatNumber}]}</span>
+                  </div>
+                  <div class="text-center pull-right" style="width: 100px">
+                     <span class="info-text buy">BUY: </span><span id="buy1" class="info-text money">{[{sum_order_buy | formatNumber}]}</span>
+                  </div>
+               </div>
+            </div>
+            <div ng-controller="CandlestickChart-one" >
+               <div class="clearfix"></div>
+               <div class="info-text colum-last-chartss" style="text-align: center;color: #1e90ff;"></div>
+               <div  id="CandlestickChart_one" style="width: 100%; min-height: 330px;float: left; "></div>
+               
+            </div>
+            <div class="button_buysell" >
+               <div class="col-md-3 col-xs-3 chart_item_one_tow">
+                  <div class="char-pin pull-left text-center" ng-controller="PieChart-one">
+                     <div id="piechart_3d_one" style="width: 140px; height: 150px; margin-top: -40px"></div>
+                     <div class=" hidden-xs hidden-sm" style="margin-top: 15px;">
+                     </div>
+                     <div class="total-buy-container text-center" style="width: 100%; text-align: center;">
+                     <span class="info-text buy" style="font-weight:bold">BUY&nbsp;&nbsp;</span><span class="total-buy-turnover info-text" style="color:goldenrod;font-weight:bold;" id="pieBuy1">{[{total_buy | formatNumber}]}</span>
+                     </div>
+                     <div class="total-sell-container text-center" style="width: 100%;text-align: center;">
+                     <span class="info-text sell" style="font-weight:bold">SELL&nbsp;</span><span class="total-sell-turnover info-text" style="color:goldenrod;font-weight:bold;" id="pieSell1">{[{total_sell | formatNumber}]}</span>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6 col-xs-9">
+                  <div class="water-drop-chart p-t-20-sm p-r-20-sm pull-right" ng-controller="CtrCharPinItem-one">
+                     <div class="col-chart">
+                        <span data-minute="0" class="{[{items[0]}]}"></span>
+                        <span data-minute="1" class="{[{items[1]}]}"></span>
+                        <span data-minute="2" class="{[{items[2]}]}"></span>
+                        <span data-minute="3" class="{[{items[3]}]}"></span>
+                        <span data-minute="4" class="{[{items[4]}]}"></span>
+                        <span data-minute="5" class="{[{items[5]}]}"></span>
+                     </div>
+                     <div class="col-chart">
+                        <span data-minute="0" class="{[{items[6]}]}"></span>
+                        <span data-minute="1" class="{[{items[7]}]}"></span>
+                        <span data-minute="2" class="{[{items[8]}]}"></span>
+                        <span data-minute="3" class="{[{items[9]}]}"></span>
+                        <span data-minute="4" class="{[{items[10]}]}"></span>
+                        <span data-minute="5" class="{[{items[11]}]}"></span>
+                     </div>
+                     <div class="col-chart">
+                        <span data-minute="0" class="{[{items[12]}]}"></span>
+                        <span data-minute="1" class="{[{items[13]}]}"></span>
+                        <span data-minute="2" class="{[{items[14]}]}"></span>
+                        <span data-minute="3" class="{[{items[15]}]}"></span>
+                        <span data-minute="4" class="{[{items[16]}]}"></span>
+                        <span data-minute="5" class="{[{items[17]}]}"></span>
+                     </div>
+                     <div class="col-chart">
+                        <span data-minute="0" class="{[{items[18]}]}"></span>
+                        <span data-minute="1" class="{[{items[19]}]}"></span>
+                        <span data-minute="2" class="{[{items[20]}]}"></span>
+                        <span data-minute="3" class="{[{items[21]}]}"></span>
+                        <span data-minute="4" class="{[{items[22]}]}"></span>
+                        <span data-minute="5" class="{[{items[23]}]}"></span>
+                     </div>
+                     <div class="col-chart">
+                        <span data-minute="0" class="{[{items[24]}]}"></span>
+                        <span data-minute="1" class="{[{items[25]}]}"></span>
+                        <span data-minute="2" class="{[{items[26]}]}"></span>
+                        <span data-minute="3" class="{[{items[27]}]}"></span>
+                        <span data-minute="4" class="{[{items[28]}]}"></span>
+                        <span data-minute="5" class="{[{items[29]}]}"></span>
+                     </div>
+                     <div class="col-chart">
+                        <span data-minute="0" class="{[{items[30]}]}"></span>
+                        <span data-minute="1" class="{[{items[31]}]}"></span>
+                        <span data-minute="2" class="{[{items[32]}]}"></span>
+                        <span data-minute="3" class="{[{items[33]}]}"></span>
+                        <span data-minute="4" class="{[{items[34]}]}"></span>
+                        <span data-minute="5" class="{[{items[35]}]}"></span>
+                     </div>
+                     <div class="col-chart">
+                        <span data-minute="0" class="{[{items[36]}]}"></span>
+                        <span data-minute="1" class="{[{items[37]}]}"></span>
+                        <span data-minute="2" class="{[{items[38]}]}"></span>
+                        <span data-minute="3" class="{[{items[39]}]}"></span>
+                        <span data-minute="4" class="{[{items[40]}]}"></span>
+                        <span data-minute="5" class="{[{items[41]}]}"></span>
+                     </div>
+                     <div class="col-chart">
+                        <span data-minute="0" class="{[{items[42]}]}"></span>
+                        <span data-minute="1" class="{[{items[43]}]}"></span>
+                        <span data-minute="2" class="{[{items[44]}]}"></span>
+                        <span data-minute="3" class="{[{items[45]}]}"></span>
+                        <span data-minute="4" class="{[{items[46]}]}"></span>
+                        <span data-minute="5" class="{[{items[47]}]}"></span>
+                     </div>
+                     <div class="col-chart">
+                        <span data-minute="0" class="{[{items[48]}]}"></span>
+                        <span data-minute="1" class="{[{items[49]}]}"></span>
+                        <span data-minute="2" class="{[{items[50]}]}"></span>
+                        <span data-minute="3" class="{[{items[51]}]}"></span>
+                        <span data-minute="4" class="{[{items[52]}]}"></span>
+                        <span data-minute="5" class="{[{items[53]}]}"></span>
+                     </div>
+                     <div class="col-chart">
+                        <span data-minute="0" class="{[{items[54]}]}"></span>
+                        <span data-minute="1" class="{[{items[55]}]}"></span>
+                        <span data-minute="2" class="{[{items[56]}]}"></span>
+                        <span data-minute="3" class="{[{items[57]}]}"></span>
+                        <span data-minute="4" class="{[{items[58]}]}"></span>
+                        <span data-minute="5" class="{[{items[59]}]}"></span>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="col-md-3 col-xs-12 buy_sell_botton">
+                  <div id="btn-buy-one" data-status="1" class="" style="padding-bottom: 1px; margin-top: 20px;">
+                     <img src="/img/buy.png" style="width:100%;" class="">
+                  </div>
+                  <input type="number" class="bet-amount amount_input_1 pull-left amount_input_number hidden-md hidden-lg"  value="0" min="0" step="1">
+                  <div id="btn-sell-one" data-status="1" class="" style="padding-bottom: 1px;">
+                     <img src="/img/sell.png" style="width:100%;" class="">
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+  
+
+
+<div class="col-md-6 hidden-xs hidden-sm"  id='exchange_tow'>
+   <input type="hidden" value="{{exchange2}}" name="MarketName">
+   
+   <div class="exchange-page">
+      <div class="container-fluid" >
+         <div class="row" ng-controller="CtrBuySellUser_Tow">
+            <div class="clearfix"></div>
+            <div class="header-trader">
+               <div class="pull-left">
+               <select ng-model="currency" id="change_curency_tow" style="margin-left: 26px" ng-change="update_currency()">  
+                     <option value="COIN">COIN</option>
+                     <option value="FOREX" >FOREX</option> 
+                  </select>
+
+                  <select ng-model="item_update" id="change_exchange_tow" ng-change="update_exchange()"> 
+                     <option ng-repeat="item_coin in sizes_coin" value="{[{item_coin[0]}]}">{[{item_coin[1]}]}</option> 
+                  </select>
+
+               </div>
+               <div class="pull-right text-right">
+                  <div class="text-center pull-right" style="width: 100px">
+                     <span class="info-text sell">SELL: </span><span id="sell1" class="info-text money">{[{sum_order_sell | formatNumber}]}</span>
+                  </div>
+                  <div class="text-center pull-right" style="width: 100px">
+                     <span class="info-text buy">BUY: </span><span id="buy1" class="info-text money">{[{sum_order_buy | formatNumber}]}</span>
+                  </div>
+               </div>
+            </div>
+            <!-- <div class="" >
+               <iframe id="CandlestickChart-tow" style="width: 100%; height: 240px; box-shadow: none;border:none;" src="/exchange/load-chart/{{exchange2}}"></iframe>
+            </div> -->
+            <div ng-controller="CandlestickChart-tow" >
+               <div class="clearfix"></div>
+               <div class="info-text colum-last-chartss" style="text-align: center;color: #1e90ff;"></div>
+               <div  id="CandlestickChart_tow" style="width: 100%; height: 330px;float: left;"></div>
+
+               <!-- <iframe id="CandlestickChart-one" style="width: 100%; height: 240px; box-shadow: none;border:none;" src="/exchange/load-chart/{{exchange1}}"></iframe> -->
+            </div>
+            <div class="button_buysell" >
+               <div class="col-md-3 chart_item_one_tow">
+                  <div class="char-pin pull-left text-center" ng-controller="PieChart-tow">
+                     <div id="piechart_3d_tow" style="width: 140px; height: 150px; margin-top: -40px"></div>
+                     <div class=" hidden-xs hidden-sm" style="margin-top: 15px;">
+                     </div>
+                     <div class="total-buy-container text-center" style="width: 100%; text-align: center;">
+                     <span class="info-text buy" style="font-weight:bold">BUY&nbsp;&nbsp;</span><span class="total-buy-turnover info-text" style="color:goldenrod;font-weight:bold;" id="pieBuy1">{[{total_buy | formatNumber}]}</span>
+                     </div>
+                     <div class="total-sell-container text-center" style="width: 100%;text-align: center;">
+                     <span class="info-text sell" style="font-weight:bold">SELL&nbsp;</span><span class="total-sell-turnover info-text" style="color:goldenrod;font-weight:bold;" id="pieSell1">{[{total_sell | formatNumber}]}</span>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="water-drop-chart p-t-20-sm p-r-20-sm pull-right" ng-controller="CtrCharPinItem-tow">
+
+                     <div class="col-chart">
+                        <span data-minute="0" class="{[{itemss[0]}]}"></span>
+                        <span data-minute="1" class="{[{itemss[1]}]}"></span>
+                        <span data-minute="2" class="{[{itemss[2]}]}"></span>
+                        <span data-minute="3" class="{[{itemss[3]}]}"></span>
+                        <span data-minute="4" class="{[{itemss[4]}]}"></span>
+                        <span data-minute="5" class="{[{itemss[5]}]}"></span>
+                     </div>
+                     <div class="col-chart">
+                        <span data-minute="0" class="{[{itemss[6]}]}"></span>
+                        <span data-minute="1" class="{[{itemss[7]}]}"></span>
+                        <span data-minute="2" class="{[{itemss[8]}]}"></span>
+                        <span data-minute="3" class="{[{itemss[9]}]}"></span>
+                        <span data-minute="4" class="{[{itemss[10]}]}"></span>
+                        <span data-minute="5" class="{[{itemss[11]}]}"></span>
+                     </div>
+                     <div class="col-chart">
+                        <span data-minute="0" class="{[{itemss[12]}]}"></span>
+                        <span data-minute="1" class="{[{itemss[13]}]}"></span>
+                        <span data-minute="2" class="{[{itemss[14]}]}"></span>
+                        <span data-minute="3" class="{[{itemss[15]}]}"></span>
+                        <span data-minute="4" class="{[{itemss[16]}]}"></span>
+                        <span data-minute="5" class="{[{itemss[17]}]}"></span>
+                     </div>
+                     <div class="col-chart">
+                        <span data-minute="0" class="{[{itemss[18]}]}"></span>
+                        <span data-minute="1" class="{[{itemss[19]}]}"></span>
+                        <span data-minute="2" class="{[{itemss[20]}]}"></span>
+                        <span data-minute="3" class="{[{itemss[21]}]}"></span>
+                        <span data-minute="4" class="{[{itemss[22]}]}"></span>
+                        <span data-minute="5" class="{[{itemss[23]}]}"></span>
+                     </div>
+                     <div class="col-chart">
+                        <span data-minute="0" class="{[{itemss[24]}]}"></span>
+                        <span data-minute="1" class="{[{itemss[25]}]}"></span>
+                        <span data-minute="2" class="{[{itemss[26]}]}"></span>
+                        <span data-minute="3" class="{[{itemss[27]}]}"></span>
+                        <span data-minute="4" class="{[{itemss[28]}]}"></span>
+                        <span data-minute="5" class="{[{itemss[29]}]}"></span>
+                     </div>
+                     <div class="col-chart">
+                        <span data-minute="0" class="{[{itemss[30]}]}"></span>
+                        <span data-minute="1" class="{[{itemss[31]}]}"></span>
+                        <span data-minute="2" class="{[{itemss[32]}]}"></span>
+                        <span data-minute="3" class="{[{itemss[33]}]}"></span>
+                        <span data-minute="4" class="{[{itemss[34]}]}"></span>
+                        <span data-minute="5" class="{[{itemss[35]}]}"></span>
+                     </div>
+                     <div class="col-chart">
+                        <span data-minute="0" class="{[{itemss[36]}]}"></span>
+                        <span data-minute="1" class="{[{itemss[37]}]}"></span>
+                        <span data-minute="2" class="{[{itemss[38]}]}"></span>
+                        <span data-minute="3" class="{[{itemss[39]}]}"></span>
+                        <span data-minute="4" class="{[{itemss[40]}]}"></span>
+                        <span data-minute="5" class="{[{itemss[41]}]}"></span>
+                     </div>
+                     <div class="col-chart">
+                        <span data-minute="0" class="{[{itemss[42]}]}"></span>
+                        <span data-minute="1" class="{[{itemss[43]}]}"></span>
+                        <span data-minute="2" class="{[{itemss[44]}]}"></span>
+                        <span data-minute="3" class="{[{itemss[45]}]}"></span>
+                        <span data-minute="4" class="{[{itemss[46]}]}"></span>
+                        <span data-minute="5" class="{[{itemss[47]}]}"></span>
+                     </div>
+                     <div class="col-chart">
+                        <span data-minute="0" class="{[{itemss[48]}]}"></span>
+                        <span data-minute="1" class="{[{itemss[49]}]}"></span>
+                        <span data-minute="2" class="{[{itemss[50]}]}"></span>
+                        <span data-minute="3" class="{[{itemss[51]}]}"></span>
+                        <span data-minute="4" class="{[{itemss[52]}]}"></span>
+                        <span data-minute="5" class="{[{itemss[53]}]}"></span>
+                     </div>
+                     <div class="col-chart">
+                        <span data-minute="0" class="{[{itemss[54]}]}"></span>
+                        <span data-minute="1" class="{[{itemss[55]}]}"></span>
+                        <span data-minute="2" class="{[{itemss[56]}]}"></span>
+                        <span data-minute="3" class="{[{itemss[57]}]}"></span>
+                        <span data-minute="4" class="{[{itemss[58]}]}"></span>
+                        <span data-minute="5" class="{[{itemss[59]}]}"></span>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-3">
+                  <div id="btn-buy-tow" data-status="1" class="" style="padding-bottom: 1px; margin-top: 20px;">
+                     <img src="/img/buy.png" style="width:100%;" class="">
+                  </div>
+                  <div id="btn-sell-tow" data-status="1" class="" style="padding-bottom: 1px;">
+                     <img src="/img/sell.png" style="width:100%;" class="">
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+
+   <div class="noti-Result" ng-controller="CtrMessage">
+      <div class="bg-Result"></div>
+      <div class="contents">
+         <div class="wap">
+            <div class="c-green-2">{[{message}]}</div>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="col-md-12 footer_buy_sell">
+   <div class="col-md-4 hidden-xs hidden-sm ">
+      <div class="input_number_amount">
+         <input type="number" class="bet-amount amount_input_2 pull-left amount_input_number"  value="0" min="0" step="1">
+         <div class="loading-control amount-select pull-left hi" style="" id="clear-click">
+            <img src="/img/clear-amount.png" id="clearAmount">
+         </div>
+      </div>
+   </div>
+   <div class="col-md-8 text-center icon_submit_btn">
+
+      <img src="/img/coin05.png" class="btn-select-amount img-responsive" data-value="5">
+      <img src="/img/coin10.png" class="btn-select-amount img-responsive" data-value="10">
+      <img src="/img/coin100.png" class="btn-select-amount img-responsive" data-value="100">
+      <img src="/img/coin500.png" class="btn-select-amount img-responsive" data-value="500">
+      <img src="/img/coin1000.png" class="btn-select-amount img-responsive" data-value="1000">
+   </div>
+</div>

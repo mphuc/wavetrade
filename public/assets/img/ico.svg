@@ -1,0 +1,82 @@
+<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" style="font-family:'lucida grande', 'lucida sans unicode', arial, helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="600" height="400">
+   <desc>Created with Highcharts 4.2.7</desc>
+   <defs>
+      <clipPath id="highcharts-25">
+         <rect x="0" y="0" width="580" height="338"></rect>
+      </clipPath>
+   </defs>
+   <g class="highcharts-series-group">
+      <g class="highcharts-series highcharts-series-0" transform="translate(10,10) scale(1 1)">
+         <path fill="#50B432" d="M 289.97311513711225 33.0000027378631 A 132 132 0 0 1 396.8924521034174 242.44677968333235 L 290 165 A 0 0 0 0 0 290 165 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path>
+         <path fill="#ED561B" d="M 396.8149518904203 242.5536333942337 A 132 132 0 0 1 183.30869960045106 242.72365417974896 L 290 165 A 0 0 0 0 0 290 165 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path>
+         <path fill="#DDDF00" d="M 183.23102930487102 242.61692403530748 A 132 132 0 0 1 212.29807759130614 58.29287158772699 L 290 165 A 0 0 0 0 0 290 165 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path>
+         <path fill="#24CBE5" d="M 212.40482355289188 58.21522303182837 A 132 132 0 0 1 289.81665464817456 33.00012733156913 L 290 165 A 0 0 0 0 0 290 165 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path>
+      </g>
+      <g class="highcharts-markers highcharts-series-0" transform="translate(10,10) scale(1 1)"></g>
+   </g>
+   <g class="highcharts-data-labels highcharts-series-0" transform="translate(10,10) scale(1 1)" opacity="1">
+      <path fill="none" d="M 439.3430569185156 91.45353904219343 C 434.3430569185156 91.45353904219343 427.2150047250086 95.0854630401098 417.4139329589366 100.07935853724481 L 407.61286119286456 105.07325403437983" stroke="#50B432" stroke-width="1"></path>
+      <path fill="none" d="M 295 327 C 290 327 290.00000000000006 319 290.00000000000006 308 L 290.00000000000006 297" stroke="#ED561B" stroke-width="1"></path>
+      <path fill="none" d="M 124.99448882358766 139.65761666348274 C 129.99448882358766 139.65761666348274 137.89599554834876 140.9090923838046 148.76056729489528 142.62987149924712 L 159.6251390414418 144.35065061468964" stroke="#DDDF00" stroke-width="1"></path>
+      <path fill="none" d="M 234.93924691125835 10.928844360185181 C 239.93924691125835 10.928844360185181 242.41138286625792 18.53729649054641 245.81056980438237 28.998918169793093 L 249.2097567425068 39.460539849039776" stroke="#24CBE5" stroke-width="1"></path>
+      <g style="cursor:pointer;" transform="translate(444,81)">
+         <text x="5" style="font-size:14px;font-weight:bold;font-family:'arial', sans-serif;color:#ffffff;fill:#ffffff;text-rendering:geometricprecision;" y="15">
+            <tspan>420,000 LEC</tspan>
+         </text>
+      </g>
+      <g style="cursor:pointer;" transform="translate(300,317)">
+         <text x="5" style="font-size:14px;font-weight:bold;font-family:'arial', sans-serif;color:#ffffff;fill:#ffffff;text-rendering:geometricprecision;" y="15">
+            <tspan>360,000 LEC</tspan>
+         </text>
+      </g>
+      <g style="cursor:pointer;" transform="translate(49,130)">
+         <text x="5" style="font-size:14px;font-weight:bold;font-family:'arial', sans-serif;color:#ffffff;fill:#ffffff;text-rendering:geometricprecision;" y="15">
+            <tspan>300,000 LEC</tspan>
+         </text>
+      </g>
+      <g style="cursor:pointer;" transform="translate(159,1)">
+         <text x="5" style="font-size:14px;font-weight:bold;font-family:'arial', sans-serif;color:#ffffff;fill:#ffffff;text-rendering:geometricprecision;" y="15">
+            <tspan>120,000 LEC</tspan>
+         </text>
+      </g>
+   </g>
+   <g class="highcharts-legend" transform="translate(75,360)">
+      <g>
+         <g>
+            <g class="highcharts-legend-item" transform="translate(8,3)">
+               <text x="21" style="color:#333;font-size:8pt;font-weight:normal;cursor:pointer;font-family:'lucida grande','lucida sans unicode',arial,helvetica,sans-serif;text-transform:none;fill:#ffffff;" text-anchor="start" y="15">
+                  <tspan>420,000 LEC:0.5$</tspan>
+               </text>
+               <rect x="0" y="4" width="16" height="12" fill="#50B432"></rect>
+            </g>
+            <g class="highcharts-legend-item" transform="translate(121.375,3)">
+               <text x="21" y="15" style="color:#333;font-size:8pt;font-weight:normal;cursor:pointer;font-family:'lucida grande','lucida sans unicode',arial,helvetica,sans-serif;text-transform:none;fill:#ffffff;" text-anchor="start">
+                  <tspan>360,000 LEC:0.7$</tspan>
+               </text>
+               <rect x="0" y="4" width="16" height="12" fill="#ED561B"></rect>
+            </g>
+            <g class="highcharts-legend-item" transform="translate(234.75,3)">
+               <text x="21" y="15" style="color:#333;font-size:8pt;font-weight:normal;cursor:pointer;font-family:'lucida grande','lucida sans unicode',arial,helvetica,sans-serif;text-transform:none;fill:#ffffff;" text-anchor="start">
+                  <tspan>300,000 LEC:0.9$</tspan>
+               </text>
+               <rect x="0" y="4" width="16" height="12" fill="#DDDF00"></rect>
+            </g>
+            <g class="highcharts-legend-item" transform="translate(348.125,3)">
+               <text x="21" y="15" style="color:#333;font-size:8pt;font-weight:normal;cursor:pointer;font-family:'lucida grande','lucida sans unicode',arial,helvetica,sans-serif;text-transform:none;fill:#ffffff;" text-anchor="start">
+                  <tspan>120,000 LEC:1.2$</tspan>
+               </text>
+               <rect x="0" y="4" width="16" height="12" fill="#24CBE5"></rect>
+            </g>
+         </g>
+      </g>
+   </g>
+   <g class="highcharts-tooltip" display="none" style="cursor:default;padding:0;pointer-events:none;white-space:nowrap;" transform="translate(0,0)">
+      <path fill="none" d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"  stroke="black" stroke-opacity="0.049999999999999996" stroke-width="5" transform="translate(1, 1)"></path>
+      <path fill="none" d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"  stroke="black" stroke-opacity="0.09999999999999999" stroke-width="3" transform="translate(1, 1)"></path>
+      <path fill="none" d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"  stroke="black" stroke-opacity="0.15" stroke-width="1" transform="translate(1, 1)"></path>
+      <path fill="rgb(249, 249, 249)" fill-opacity=" .85" d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"></path>
+      <text x="8" style="font-size:12px;color:#ffffff;fill:#ffffff;" y="20"></text>
+   </g>
+   
+</svg>

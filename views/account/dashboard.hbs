@@ -1,0 +1,137 @@
+<input type="hidden" value="{{user._id}}" id="_ID_USER" name="">
+
+<section class="account-list" style="margin-top: 30px;">
+   <div class="">
+   <div class="box">
+      <div class="box-body">
+         <section class="dash-widgets">
+            <div class="">
+               <div class="row">
+                  <div class="col-md-6 col-sm-6">
+                     <div class="card">
+                        <div class="card-header"><i class="icon icon-pc m-r-5"></i> Commission</div>
+                        <div class="dashboard-block table-responsive">
+                           <table class="table table-hover">
+                              <tbody>
+                                 <tr>
+                                    <td class="middle">Wallet Balance</td>
+                                    <td class="text-right middle">
+                                       <a href="#" style="color: red; font-size: 30px;    text-decoration: none;">{{formatusd  user.balance}} USD</a>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="middle">Pending Commission</td>
+                                    <td class="text-right middle">
+                                       <a href="#" style="color: limegreen; font-size: 30px;    text-decoration: none;">{{formatusd  user.balance_commision}} USD</a>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="middle">Trading Amount</td>
+                                    <td class="text-right middle">
+                                       <a href="#" style="font-size: 30px;    text-decoration: none;">{{formatusd  user.betting}} USD</a>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-6 col-sm-6">
+                     <div class="card" style=" padding-bottom: 18px; ">
+                        <div class="card-header"><i class="icon icon-ts m-r-5"></i> Trading Settings</div>
+                        <div class="dashboard-block table-responsive">
+                           <table class="table table-hover">
+                              <tbody>
+                                 <tr>
+                                    <td>
+                                       Status:
+                                    </td>
+                                    <td class="text-right">
+                                       <div id="member-status">Activated</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td>Active Members</td>
+                                    <td class="text-right">
+                                       <a href="/account/affiliate/f1" class="">
+                                          <div style="color:blue;" class="active-member">{{count_child}}</div>
+                                       </a>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="col-md-12">
+                     <div class="card" style=" padding-bottom: 18px; ">
+                        <div class="card-header"><i class="icon icon-ts m-r-5"></i> Reference Link</div>
+                        <div class="dashboard-block">
+                           <div class="refLink_div">
+                              <input type="text"  id="refLink" value="https://wavetrade.co/account/register/{{user.displayName}}" name="">
+                              <button type="button" onclick="copyToClipboard()" value="Copy" class="btn btn-info" id="btn-copy" data-dismiss="modal">Copy</button>
+                           </div>
+                           <br />
+                           <div class="clearfix"></div>
+                        </div>
+                        <a href="/account/useraccount" class="btn btn-success">Add Live Account</a>
+                        <a href="/account/useraccount" class="btn btn-warning">Add Trial Account</a>
+                        <a class="btn btn-primary" href="/account/useraccount">Upline Transfer</a>            
+                        <div class="clearfix"></div>
+                        <style>
+                           a.btn {
+                           width: 150px;
+                           margin: 3px;
+                           }
+                        </style>
+                     </div>
+                  </div>
+               </div>
+         </section>
+         <section class="bank p-t-40">
+         <div class="">
+         <div class="card">
+         <div class="card-header"><i class="fa fa-exchange m-r-5"></i> History Commision</div>
+         <div class="card-body">
+         <div class="table-responsive">
+         <table id="login_historys" class="table table-hover table-bordered table-striped m-b-0">
+         <thead>
+         <tr class="info">
+         <th>#</th>
+         <th>Date</th>
+         <th>Amount</th>
+         <th>Status</th>
+         <th>Type</th>
+         <th>Detail</th>
+         </tr>
+         <thead>
+         <tbody>
+         {{#each data_commission}}
+         <tr>
+         <td class="text-center">{{math1 @index}}</td>
+         <td>{{prettifyDate this.date}}</td>
+         <td class="text-center">{{formatusd this.amount}} </td>
+         <td class="text-center">
+         {{#if_eq this.status 'Pending'}}
+         <span style="color: red">Pending</span>
+         {{/if_eq}}
+         {{#if_eq this.status 'Finish'}}
+         <span style="color: #2196F3">Finish</span>
+         {{/if_eq}}
+         </td>
+         <td>{{this.type}} </td>
+         <td>{{this.detai}} </td>
+         </tr>
+         {{/each}}
+         </tbody>
+         </table>
+         </div>
+         </div>
+         </div>
+         </div>
+         </section>
+         </div>
+      </div>
+   </div>
+</section>

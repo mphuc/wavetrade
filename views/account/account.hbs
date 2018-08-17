@@ -1,0 +1,222 @@
+<section class="account-list" style="margin-top: 30px;">
+   <div class="">
+      <div class="box">
+         <div class="box-body">
+            
+            <section class="transfer">
+               <div class="">
+                  
+                  <div class="card">
+                     <div class="card-header"><i class="fa fa-user"></i> REAL ACCOUNT</div>
+                     <a style="margin-bottom: 15px;" class="btn btn-success font-bold" data-toggle="modal" data-target="#myModal">Add Account</a>
+                     <div class="card-body">
+                        <div class="table-responsive">
+                           <table class="table table-hover table-bordered table-striped m-b-0">
+                              <tbody>
+                                 <tr class="info">
+                                    <th>
+                                       Account ID
+                                    </th>
+                                    <th>
+                                       Balance
+                                    </th>
+                                    <th>
+                                       Status
+                                    </th>
+                                    <th>Action</th>
+                                 </tr>
+                              </tbody>
+                              <tbody class="text-center">
+                                 {{#each user_child}}
+                                    {{#if_eq this.type '0'}}
+                                    <tr>
+                                       <td>
+                                        <a href="/exchange/account/{{this.account_id}}">{{this.account_id}}</a></td>
+                                       <td>{{formatusd this.balance}}</td>
+                                       <td>
+                                          <span style="color: #3c763d;font-size: 19px;" class="fa fa-check-circle"></span>
+                                       </td>
+                                       <td class="text-center">
+                                          <div class="btn-group ">
+                                            <a href="/account/useraccount/interaltrabsfer/{{this.account_id}}">
+                                               <button type="button" class="btn btn-primary">Internal Transfer</button>
+                                            </a> 
+                                          </div>
+                                       </td>
+                                    </tr>
+                                    {{/if_eq}}
+                                 {{/each}}
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+            <section class="bank p-t-40">
+               <div class="">
+                  <div class="card">
+                     <div class="card-header"><i class="fa fa-user""></i> DEMO ACCOUNT</div>
+                     <a style="margin-bottom: 15px;" class="btn btn-success font-bold" data-toggle="modal" data-target="#myModal_demo">Add Account</a>
+                     <div class="card-body">
+                        <div class="table-responsive">
+                           <table class="table table-hover table-bordered table-striped m-b-0">
+                              <tbody>
+                                 <tr class="info">
+                                    <th>
+                                       Account ID
+                                    </th>
+                                    <th>
+                                       Balance
+                                    </th>
+                                    <th>
+                                       Status
+                                    </th>
+                                    <th>Action</th>
+                                 </tr>
+                              </tbody>
+                              <tbody class="text-center">
+                                 {{#each user_child}}
+                                    {{#if_eq this.type '1'}}
+                                    <tr>
+                                      
+                                       <td><a href="/exchange/account/{{this.account_id}}">{{this.account_id}}</a></td>
+                                       <td>{{formatusd this.balance}}</td>
+                                       <td>
+                                          {{#if_eq this.status '0'}}
+                                             <span style="color: #006837;font-size: 19px;" class="fa fa-check-circle"></span>
+                                          {{/if_eq}}
+                                          {{#if_eq this.status '1'}}
+                                             <span style="color: #f71d0d;font-size: 19px;" class="fa fa-check-circle"></span>
+                                          {{/if_eq}}
+                                       </td>
+                                       <td>
+                                          <div class="btn-group ">
+                                            <button type="button" data-account_id="{{this.account_id}}" data-toggle="modal" data-target="#myModal_NewBalance" class="btn btn-primary new_balance_account">New Balance</button>
+                                          </div>
+
+                                       </td>
+                                    </tr>
+                                    {{/if_eq}}
+                                 {{/each}}
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+         </div>
+      </div>
+   </div>
+</section>
+  
+<div class="modal fade" id="myModal_NewBalance" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">New Balance</h4>
+        </div>
+        <form id="Form-submit-new-balance" method="POST" action="/account/submit-new-balance">
+           <div class="modal-body" style="min-height: 70px;">
+               <div class="form-group" >
+                  <input type="hidden" name="account_id" id="account_id_append" value="">
+                  
+               </div>
+               <div class="clearfix" style="margin-top: 20px"></div>
+               <div class="form-group" >
+                  <h5 class="col-sm-offset-1 col-sm-3">
+                     New Balance:
+                  </h5>
+                  <div class="col-sm-7">
+                    <input class="form-control text-right" name="balance" type="balance"  >
+                  </div>
+               </div>
+               <div class="clearfix"></div>
+               <div class="alert alert-danger alert-dismissable error_submit_add_account" style="display: none;"></div>
+           </div>
+           <div class="modal-footer">
+             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+             <button type="submit" class="btn btn-primary has-spinner btn-submit-exchain"  style="">
+               <span class="spinner"><i style="display: none;" class="fa fa-spinner fa-pulse"></i></span>
+               <confirm>Confirm</confirm>
+            </button>
+           </div>
+         </form>
+
+      </div>
+      
+    </div>
+  </div>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add Account</h4>
+        </div>
+        <form id="Form-submit-add-account" method="POST" action="/account/submit-add-account">
+           <div class="modal-body" style="min-height: 40px;">
+               <div class="form-group" >
+                  <input type="hidden" name="type" value="0">
+               </div>
+               <h3 class="text-center">Are you sure you want to create an account?</h3>
+               <div class="clearfix" style="margin-top: 20px"></div>
+               
+               <div class="clearfix"></div>
+               <div class="alert alert-danger alert-dismissable error_submit_add_account" style="display: none;"></div>
+           </div>
+           <div class="modal-footer">
+             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+             <button type="submit" class="btn btn-primary has-spinner btn-submit-exchain"  style="">
+               <span class="spinner"><i style="display: none;" class="fa fa-spinner fa-pulse"></i></span>
+               <confirm>Confirm</confirm>
+            </button>
+           </div>
+         </form>
+      </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModal_demo" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add Account</h4>
+      </div>
+      <form id="Form-submit-add-account-demo" method="POST" action="/account/submit-add-account">
+         <div class="modal-body" style="min-height: 70px;">
+             <div class="form-group" >
+                <input type="hidden" name="type" value="1">
+                
+             </div>
+             <div class="clearfix" style="margin-top: 20px"></div>
+             <div class="form-group" >
+                <h5 class="col-sm-offset-1 col-sm-3">
+                   Balance:
+                </h5>
+                <div class="col-sm-7">
+                  <input class="form-control text-right" name="balance" type="balance"  >
+                </div>
+             </div>
+             <div class="clearfix"></div>
+             <div class="alert alert-danger alert-dismissable error_submit_add_account" style="display: none;"></div>
+         </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+           <button type="submit" class="btn btn-primary has-spinner btn-submit-exchain"  style="">
+             <span class="spinner"><i style="display: none;" class="fa fa-spinner fa-pulse"></i></span>
+             <confirm>Confirm</confirm>
+          </button>
+         </div>
+       </form>
+
+    </div>
+    
+  </div>
+</div>
+

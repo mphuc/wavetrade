@@ -1,0 +1,50 @@
+
+
+@media screen and (max-width: 440px) {
+  .water-drop-chart .col-chart>span {
+      display: block;
+      margin: 1px 1px;
+      width: 21px;
+      height: 21px;
+  }
+}
+@media screen and (max-width: 340px) {
+
+  #CandlestickChart_one{
+    height: 125px !important;
+    min-height: 125px !important;
+  }
+  #exchange_option .account-number {
+    font-size: 12px;
+    margin-top: 8px;
+  }
+  #exchange_option .balance {
+    font-size: 15px;
+  }
+  .header_exchange .img-responsive.logos{
+    margin-top: -15px !important;
+  }
+  .header_exchange .logos{
+    margin: 0 auto !important;
+  }
+  #piechart_3d_one {
+    width: 80px !important;
+    height: 135px !important;
+    margin-top: -64px !important;
+  }
+  .water-drop-chart .col-chart>span {
+    width: 17px;
+    height: 17px;
+  }
+  .icon_submit_btn {
+    width: 100%;
+    float: left;
+    padding: 0;
+    margin-top: -8px; 
+  }
+  
+  .bet-amount {
+    font-size: 25px;
+    line-height: 37px;
+  }
+}

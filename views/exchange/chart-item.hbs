@@ -1,0 +1,116 @@
+<html>
+   <head>
+      <script type="text/javascript" src="/jqcandlestick/jquery.min.js"></script>
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="/static/exchange/angular.js"></script>
+      <script src="/static/exchange/ui-bootstrap-tpls-0.11.0.js"></script>
+      <script src="/static/exchange/chart.js"></script>
+      
+   </head>
+   <body >
+      <div ng-app="myApp">
+        <div class="water-drop-chart p-t-20-sm p-r-20-sm pull-right" ng-controller="CtrCharPinItem">
+          <input type="hidden" id="_EXCHANGE_" value="{{MarketName}}" name="">
+            <div class="col-chart">
+               <span data-minute="0" class="{[{items[1]}]}"></span>
+               <span data-minute="1" class="{[{items[2]}]}"></span>
+               <span data-minute="2" class="{[{items[3]}]}"></span>
+               <span data-minute="3" class="{[{items[4]}]}"></span>
+               <span data-minute="4" class="{[{items[5]}]}"></span>
+               <span data-minute="5" class="{[{items[6]}]}"></span>
+            </div>
+            <div class="col-chart">
+               <span data-minute="0" class="{[{items[7]}]}"></span>
+               <span data-minute="1" class="{[{items[8]}]}"></span>
+               <span data-minute="2" class="{[{items[9]}]}"></span>
+               <span data-minute="3" class="{[{items[10]}]}"></span>
+               <span data-minute="4" class="{[{items[11]}]}"></span>
+               <span data-minute="5" class="{[{items[12]}]}"></span>
+            </div>
+            <div class="col-chart">
+               <span data-minute="0" class="{[{items[13]}]}"></span>
+               <span data-minute="1" class="{[{items[14]}]}"></span>
+               <span data-minute="2" class="{[{items[15]}]}"></span>
+               <span data-minute="3" class="{[{items[16]}]}"></span>
+               <span data-minute="4" class="{[{items[17]}]}"></span>
+               <span data-minute="5" class="{[{items[18]}]}"></span>
+            </div>
+            <div class="col-chart">
+               <span data-minute="0" class="{[{items[19]}]}"></span>
+               <span data-minute="1" class="{[{items[20]}]}"></span>
+               <span data-minute="2" class="{[{items[21]}]}"></span>
+               <span data-minute="3" class="{[{items[22]}]}"></span>
+               <span data-minute="4" class="{[{items[23]}]}"></span>
+               <span data-minute="5" class="{[{items[24]}]}"></span>
+            </div>
+            <div class="col-chart">
+               <span data-minute="0" class="{[{items[25]}]}"></span>
+               <span data-minute="1" class="{[{items[26]}]}"></span>
+               <span data-minute="2" class="{[{items[27]}]}"></span>
+               <span data-minute="3" class="{[{items[28]}]}"></span>
+               <span data-minute="4" class="{[{items[29]}]}"></span>
+               <span data-minute="5" class="{[{items[30]}]}"></span>
+            </div>
+            <div class="col-chart">
+               <span data-minute="0" class="{[{items[31]}]}"></span>
+               <span data-minute="1" class="{[{items[32]}]}"></span>
+               <span data-minute="2" class="{[{items[33]}]}"></span>
+               <span data-minute="3" class="{[{items[34]}]}"></span>
+               <span data-minute="4" class="{[{items[35]}]}"></span>
+               <span data-minute="5" class="{[{items[36]}]}"></span>
+            </div>
+            <div class="col-chart">
+               <span data-minute="0" class="{[{items[37]}]}"></span>
+               <span data-minute="1" class="{[{items[38]}]}"></span>
+               <span data-minute="2" class="{[{items[39]}]}"></span>
+               <span data-minute="3" class="{[{items[40]}]}"></span>
+               <span data-minute="4" class="{[{items[41]}]}"></span>
+               <span data-minute="5" class="{[{items[42]}]}"></span>
+            </div>
+            <div class="col-chart">
+               <span data-minute="0" class="{[{items[43]}]}"></span>
+               <span data-minute="1" class="{[{items[44]}]}"></span>
+               <span data-minute="2" class="{[{items[45]}]}"></span>
+               <span data-minute="3" class="{[{items[46]}]}"></span>
+               <span data-minute="4" class="{[{items[47]}]}"></span>
+               <span data-minute="5" class="{[{items[48]}]}"></span>
+            </div>
+            <div class="col-chart">
+               <span data-minute="0" class="{[{items[49]}]}"></span>
+               <span data-minute="1" class="{[{items[50]}]}"></span>
+               <span data-minute="2" class="{[{items[51]}]}"></span>
+               <span data-minute="3" class="{[{items[52]}]}"></span>
+               <span data-minute="4" class="{[{items[53]}]}"></span>
+               <span data-minute="5" class="{[{items[54]}]}"></span>
+            </div>
+            <div class="col-chart">
+               <span data-minute="0" class="{[{items[55]}]}"></span>
+               <span data-minute="1" class="{[{items[56]}]}"></span>
+               <span data-minute="2" class="{[{items[57]}]}"></span>
+               <span data-minute="3" class="{[{items[58]}]}"></span>
+               <span data-minute="4" class="{[{items[59]}]}"></span>
+               <span data-minute="5" class="{[{items[60]}]}"></span>
+            </div>
+         </div>
+      </div>
+      <style type="text/css">
+        .water-drop-chart .col-chart {
+            float: left;
+        }
+        .water-drop-chart .col-chart>span.Sell {
+            background-color: rgb(255, 0, 0);
+        }
+        .water-drop-chart .col-chart>span {
+            display: block;
+            margin: 2px 2px;
+            width: 23px;
+            height: 23px;
+            background-color: #9fa0a2;
+            border-radius: 50%;
+        }
+        .water-drop-chart .col-chart>span.Buy {
+            background-color: rgb(0, 128, 0);
+        }
+      </style>
+   </body>
+</html> 

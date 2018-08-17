@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" >
+      <link rel="icon" type="image/png" href="/img/logo.png" >
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+      <meta name="description" content="">
+      <title>{{ title }}</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      <meta name="viewport" content="width=device-width" >
+      <link href="/static/css/bootstrap.min.css" rel="stylesheet" >
+      <link href="/static/css/addon.css" rel="stylesheet" >
+      <link href="/static/css/font-awesome.min.css" rel="stylesheet">
+      <link href="/css/sweetalert.css" rel="stylesheet" >
+      <link href="/static/css/jquery.toast.css" rel="stylesheet">
+      <link href="/static/css/corecss.css" rel="stylesheet">
+      <link href="/static/css/customer.css" rel="stylesheet">
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+   </head>
+   <body ng-app='myApp' style="padding-top: 0px;">
+      <div id="loadings"><div class="lds-dual-ring"></div></div>
+      <div id="pad-wrapperss" >
+         <div class="">
+            <div class="clearfix"></div>
+               {{{ body }}}
+         </div>
+
+      </div>
+
+      
+        
+      <script src="/static/vendors/jquery-3.1.1.min.js" type="text/javascript"></script><script src="/static/vendors/jquery-ui.min.js" type="text/javascript"></script><script src="/static/vendors/bootstrap.min.js" type="text/javascript"></script><script src="/static/vendors/material.min.js" type="text/javascript"></script><script src="/static/vendors/perfect-scrollbar.jquery.min.js" type="text/javascript"></script><script src="/static/vendors/jquery.bootstrap-wizard.js"></script><script src="/static/vendors/bootstrap-notify.js"></script><script src="/static/vendors/jquery-jvectormap.js"></script><script src="/static/vendors/jquery.datatables.js"></script><script src="/static/vendors/sweetalert/js/sweetalert2.min.js"></script><script src="/static/vendors/sweetalert/js/swal-forms.js"></script><script src="/static/vendors/jasny-bootstrap.min.js"></script><script src="/static/vendors/jquery.tagsinput.js"></script><script src="/static/js/amaze.js"></script><script src="/static/js/demo.js"></script><script type="text/javascript"> $(document).ready(function() {$('#datatables').DataTable({"order": [[ 1, "desc" ]], "pagingType": "full_numbers", "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"] ], responsive: true, language: {search: "_INPUT_", searchPlaceholder: "Search records", } }); var table = $('#datatables').DataTable(); $('.card .material-datatables label').addClass('form-group'); }); $(document).ready(function() {$('#datatables-transaction').DataTable({"order": [[ 0, "desc" ]], autoWidth: false, searching: false, ordering: true, responsive: true, lengthChange: false, destroy: true, paging: true, info: false, }); var table = $('#datatables-transaction').DataTable(); $('.card .material-datatables label').addClass('form-group'); });</script><script src="/static/js/clipboard.min.js"></script><script type="text/javascript" src="/js/jqBootstrapValidation.js"></script><script src="/static/js/main.js"></script><script src="/static/js/jstree.min.js"></script><script>var clipboard = new Clipboard('.copy');clipboard.on('success', function(e) { return true;});clipboard.on('error', function(e) {return false;});</script><script src="/static/js/jquery.form.js" type="text/javascript"></script> {{#if_eq menu "balance"}}
+      <script src="/static/js/balance.js" type="text/javascript"></script>
+
+      {{/if_eq}} {{#if_eq menu "ico"}}<script src='https://www.google.com/recaptcha/api.js'></script> {{/if_eq}}<script src="/static/js/jQuery.yuukCountdown.js"></script>
+
+      {{#if_eq menu "support"}}
+      <script src='https://www.google.com/recaptcha/api.js'></script>
+      <script src="/static/js/support.js"></script>
+      {{/if_eq}}
+
+      <script src="/static/js/account.js" type="text/javascript"></script>
+
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="/static/js/exchange.js"></script>
+      <script src="/js/sweetalert.js"></script> 
+      <script src="/static/exchange/angular.js"></script>
+      <script src="/static/exchange/ui-bootstrap-tpls-0.11.0.js"></script>
+      <script src="/static/exchange/controller.js"></script>
+     <!--  <script src="/static/exchange/exchange_one.js"></script> -->
+      
+      <script src="/static/js/jquery.toast.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         $.fn.dataTable.ext.search.push(
+            function( settings, data, dataIndex ) {
+               var min  = $('.History_BuySell_Account_ID #min').val();
+               var max  = $('.History_BuySell_Account_ID #max').val();
+               var createdAt = data[1] || 0; 
+               if  (( min == "" || max == "" ) || ( 
+                  moment(createdAt).isSameOrAfter(min+' 00:00 AM') && moment(createdAt).isSameOrBefore(max+' 11:59 PM') )) 
+               {
+                    return true;
+               }
+               return false;
+            }
+        );
+        /* $.fn.dataTable.ext.search.push(
+            function( settings, data, dataIndex ) {
+               var min  = $('.History_BuySell_Account_IDS #mins').val();
+               var max  = $('.History_BuySell_Account_IDS #maxs').val();
+               var createdAt = data[1] || 0; 
+               if  (( min == "" || max == "" ) || ( 
+                  moment(createdAt).isSameOrAfter(min+' 00:00 AM') && moment(createdAt).isSameOrBefore(max+' 11:59 PM') )) 
+               {
+                    return true;
+               }
+               return false;
+            }
+        );*/
+         $.fn.dataTable.Api.register( 'sum()', function ( ) {
+             return this.flatten().reduce( function ( a, b ) {
+                 if ( typeof a === 'string' ) {
+                     a = a.replace(/[^\d.-]/g, '') * 1;
+                 }
+                 if ( typeof b === 'string' ) {
+                     b = b.replace(/[^\d.-]/g, '') * 1;
+                 }
+          
+                 return a + b;
+             }, 0 );
+         } );
+         $(document).ready(function() {
+             var table_History_BuySell_Account_ID = $('#History_BuySell_Account_ID').DataTable({
+                  "order": [[ 1, "desc" ],[ 0, "desc" ]],
+                  "footerCallback": function(row, data, start, end, display) {
+                      var api = this.api(),
+                          data;
+
+                      var intVal = function(i) {
+                          return typeof i === 'string' ?
+                              i.replace(/[\$,]/g, '') * 1 :
+                              typeof i === 'number' ?
+                              i : 0;
+                      };
+                      total = api
+                          .column(4, { page: 'current'})
+                          .data()
+                          .reduce(function(a, b) {
+                              return intVal(a) + intVal(b);
+                          }, 0);
+                      total_all = api
+                          .column(4, { })
+                          .data()
+                          .reduce(function(a, b) {
+                              return intVal(a) + intVal(b);
+                          }, 0);
+                      totals = api
+                          .column(5, { page: 'current'})
+                          .data()
+                          .reduce(function(a, b) {
+                              return intVal(a) + intVal(b);
+                          }, 0);
+                      totals_all = api
+                          .column(5, {})
+                          .data()
+                          .reduce(function(a, b) {
+                              return intVal(a) + intVal(b);
+                          }, 0);
+
+                      $(api.column(4).footer()).html(
+                          parseFloat(total).toFixed(2)+' ('+parseFloat(total_all).toFixed(2)+')'
+                      );
+                      $(api.column(5).footer()).html(
+                          parseFloat(totals).toFixed(2) > 0 ? '<span style="color: #2196F3">'+parseFloat(totals).toFixed(2)+' ('+parseFloat(totals_all).toFixed(2)+')</span>' : '<span style="color: red">'+parseFloat(totals).toFixed(2)+' ('+parseFloat(totals_all).toFixed(2)+')</span>'
+
+                      );
+                  }
+               });
+             $('.History_BuySell_Account_ID #min,.History_BuySell_Account_ID #max').change(function() {
+                 table_History_BuySell_Account_ID.draw();
+             });
+
+
+
+             /**/
+             var table_History_BuySell_Account_IDS = $('#History_BuySell_Account_IDS').DataTable({
+                  "order": [[ 1, "desc" ],[ 0, "desc" ]],
+                  "footerCallback": function(row, data, start, end, display) {
+                      var api = this.api(),
+                          data;
+
+                      var intVal = function(i) {
+                          return typeof i === 'string' ?
+                              i.replace(/[\$,]/g, '') * 1 :
+                              typeof i === 'number' ?
+                              i : 0;
+                      };
+                      total = api
+                          .column(2, { page: 'current'})
+                          .data()
+                          .reduce(function(a, b) {
+                              return intVal(a) + intVal(b);
+                          }, 0);
+                      totals = api
+                          .column(3, { page: 'current'})
+                          .data()
+                          .reduce(function(a, b) {
+                              return intVal(a) + intVal(b);
+                          }, 0);
+
+                      $(api.column(2).footer()).html(
+                          parseFloat(total).toFixed(2) > 0 ? '<span style="color: #2196F3">'+parseFloat(total).toFixed(2)+'</span>' : '<span style="color: red">'+parseFloat(total).toFixed(2)+'</span>'
+                      );
+                      $(api.column(3).footer()).html(
+                          parseFloat(totals).toFixed(2) > 0 ? '<span style="color: #2196F3">'+parseFloat(totals).toFixed(2)+'</span>' : '<span style="color: red">'+parseFloat(totals).toFixed(2)+'</span>'
+
+                      );
+                  }
+               });
+             $('.History_BuySell_Account_IDS #min,.History_BuySell_Account_IDS #max').change(function() {
+                 table_History_BuySell_Account_IDS.draw();
+             });
+
+             var table = $('#datatablesss').DataTable()
+         });
+         function UserGetPendingMillionaireIncome()
+          {
+              
+              $('#Millionaire_Amount').html(0).css({'color': 'red', 'font-size': '30px'});
+          }
+          /*var setHeight = $(this).outerHeight(); 
+          // returns e.g. 687
+
+          $("#loadings").css({'height': setHeight+"px" });*/
+      </script>
+   </body>
+</html>

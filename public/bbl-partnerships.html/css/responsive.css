@@ -1,0 +1,429 @@
+/* Desktop Layout */
+
+
+/* Tablet Layout: 768px. */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+.navbar-inverse .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.1);
+  top: 17px;
+  border: 1px solid #fff;
+}
+.navbar-inverse .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.1);
+  top: 17px;
+}
+.navbar-collapse {
+  align-items: center;
+  flex-basis: 100%;
+}
+.navbar-collapse {
+  padding-bottom: 12px;
+  padding-top: 8px;
+}
+.navbar-header {
+  height: 80px;
+  line-height: 80px;
+}
+.navbar-nav {
+  margin-left: auto;
+}
+.navbar .container {
+    width: 100%;
+}
+.navbar-inverse {
+  background-color: #3b78ea !important;
+  border-color: #080808;
+}
+.navbar-nav li a {
+  font-size: 16px;
+  font-weight: 400;
+  padding-right: 10px;
+}
+.header-img img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
+.header-text h1 {
+  font-size: 31px;
+  margin-bottom: 30px;
+}
+.header-text p {
+  margin-bottom: 42px;
+}
+.about-section {
+  height: auto;
+  padding-bottom: 90px;
+  padding-top: 50px;
+}
+.about-features-1 {
+  background: #fff none repeat scroll 0 0;
+  border-radius: 10px;
+  padding: 15px;
+  padding-bottom: 20px;
+}
+.about-features-1:hover {
+    background: #3b78ea;
+	color:#fff;
+    border-radius: 10px;
+    padding: 15px;
+    padding-bottom: 20px;
+    box-shadow: 0 7px 10px -3px gray;
+    transition: 1s ease;
+}
+.features-img img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
+.features-wrap {
+  background: #fff none repeat scroll 0 0;
+  border: 2px solid #fbcce8;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  padding: 20px 10px 10px;
+}
+.features-wrap:hover {
+  background: #fff none repeat scroll 0 0;
+  border: 2px solid #fbcce8;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  padding: 20px 10px 10px;
+  box-shadow:0 7px 10px -3px gray;
+  transition: 1s ease;
+}
+.screenshot-list .owl-nav .owl-prev {
+  float: right;
+  font-size: 50px;
+  left: 41%;
+  position: absolute;
+}
+.pricing-table {
+  background: #3b78ea none repeat scroll 0 0;
+  margin-bottom: 20px;
+}
+.pricing-footer-1 {
+  width: 80%;
+}
+#email {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 auto;
+  padding: 20px 0 20px 20px;
+  width: 52%;
+}
+#button {
+  background: #e5ad04 none repeat scroll 0 0;
+  border: 1px solid #fff;
+  border-radius: 35px;
+  color: #fff;
+  font-family: "Montserrat",sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 17px;
+  position: absolute;
+  right: 183px;
+  text-transform: uppercase;
+  top: 2px;
+  width: 142px;
+}
+.center-block {
+  width: 23%;
+}
+.center-block a img{
+	margin-bottom:15px;
+}
+}
+
+/* Mobile Layout: 320px. */
+
+@media only screen and (max-width: 767px) {
+.home-header {
+  height: auto;
+  padding-bottom:50px;
+}
+.header-img {
+  margin-top: 50px;
+}
+.navbar-inverse .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.1);
+  top: 17px;
+  border: 1px solid #fff;
+}
+.navbar .container {
+    width: 100%;
+}
+.navbar-inverse {
+  background-color: #3b78ea;
+  border-color: #080808;
+}
+.navbar .navbar-right li a {
+  font-size: 16px;
+  font-weight: 400;
+  padding-right: 10px;
+}
+.header-img img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
+.header-text h1 {
+  font-size: 31px;
+  margin-bottom: 30px;
+  text-align:center;
+}
+.header-text p {
+  margin-bottom: 42px;
+  text-align:center;
+}
+.header-btn {
+  background: #eac042 none repeat scroll 0 0;
+  border: 2px solid #eac042;
+  border-radius: 5px 30px;
+  color: #fff;
+  display: block;
+  font-family: "Montserrat",sans-serif;
+  font-weight: 500;
+  margin: 0 auto;
+  padding: 16px 40px;
+  text-transform: uppercase;
+  transition: all 0.3s ease 0s;
+  width: 56%;
+  text-align: center;
+}
+.about-section {
+  height: auto;
+  padding-bottom: 70px;
+  padding-top: 50px;
+}
+.about-features-1 {
+  background: #fff none repeat scroll 0 0;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 15px 15px 20px;
+}
+.about-features-1:hover {
+    background: #3b78ea;
+	color:#fff;
+    border-radius: 10px;
+    padding: 15px;
+    padding-bottom: 20px;
+    box-shadow: 0 7px 10px -3px gray;
+    transition: 1s ease;
+	margin-bottom: 20px;
+}
+.features-img img {
+  display: none;
+  margin: 0 auto;
+  width: 100%;
+}
+.features-wrap {
+  background: #fff none repeat scroll 0 0;
+  border: 2px solid #fbcce8;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  padding: 20px 10px 15px;
+}
+.features-wrap:hover {
+  background: #fff none repeat scroll 0 0;
+  border: 2px solid #fbcce8;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  padding: 20px 10px 15px;
+  box-shadow:0 7px 10px -3px gray;
+  transition: 1s ease;
+}
+.pricing-table {
+  background: #3b78ea none repeat scroll 0 0;
+  margin-bottom: 20px;
+}
+.screenshot-list .owl-nav .owl-prev {
+  float: right;
+  font-size: 50px;
+  left: 33%;
+  position: absolute;
+}
+#email {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 auto;
+  padding: 20px 0 20px 20px;
+  width: 100%;
+}
+#button {
+  background: #e5ad04 none repeat scroll 0 0;
+  border: 1px solid #fff;
+  border-radius: 35px;
+  color: #fff;
+  font-family: "Montserrat",sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 10px;
+  padding: 17px;
+  position: inherit;
+  text-transform: uppercase;
+  top: 8px;
+  width: 100%;
+}
+.center-block {
+  width: 53%;
+}
+.center-block a img{
+	margin-bottom:15px;
+}
+.download-section {
+  padding-bottom: 40px;
+}
+.download-btn a {
+  margin: 0 0 16px;
+}
+}
+
+/* Wide Mobile Layout: */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+.home-header {
+  height: auto;
+  padding-bottom:50px;
+}
+.header-img {
+  margin-top: 190px;
+}
+.navbar-inverse .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.1);
+  top: 17px;
+  border: 1px solid #fff;
+}
+.navbar .container {
+    width: 100%;
+}
+.navbar-inverse {
+  background-color: #3b78ea !important;
+  border-color: #080808;
+}
+.navbar-nav li a {
+  font-size: 16px;
+  font-weight: 400;
+  padding-right: 10px;
+}
+.header-img img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
+.header-text h1 {
+  font-size: 22px;
+  margin-bottom: 30px;
+  text-align:center;
+}
+.header-text p {
+  margin-bottom: 42px;
+  text-align:center;
+}
+.header-btn {
+  background: #eac042 none repeat scroll 0 0;
+  border: 2px solid #eac042;
+  border-radius: 5px 30px;
+  color: #fff;
+  display: block;
+  font-family: "Montserrat",sans-serif;
+  font-weight: 500;
+  margin: 0 auto;
+  padding: 16px 40px;
+  text-transform: uppercase;
+  transition: all 0.3s ease 0s;
+  width: 80%;
+  text-align: center;
+}
+.about-section {
+  height: auto;
+  padding-bottom: 70px;
+  padding-top: 50px;
+}
+.about-features-1 {
+  background: #fff none repeat scroll 0 0;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 15px 15px 20px;
+}
+.about-features-1:hover {
+    background: #3b78ea;
+	color:#fff;
+    border-radius: 10px;
+    padding: 15px;
+    padding-bottom: 20px;
+    box-shadow: 0 7px 10px -3px gray;
+    transition: 1s ease;
+	margin-bottom: 20px;
+}
+.features-text{
+	max-width:100%;
+}
+.features-text {
+  flex: 0 0 auto;
+  max-width: 100%;
+}
+.features-img img {
+  display: none;
+  margin: 0 auto;
+  width: 100%;
+}
+.features-wrap {
+  background: #fff none repeat scroll 0 0;
+  border: 2px solid #fbcce8;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  padding: 20px 10px 7px;
+}
+.features-wrap:hover {
+  background: #fff none repeat scroll 0 0;
+  border: 2px solid #fbcce8;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  padding: 20px 10px 7px;
+  box-shadow:0 7px 10px -3px gray;
+  transition: 1s ease;
+}
+.pricing-table {
+  background: #3b78ea none repeat scroll 0 0;
+  margin-bottom: 20px;
+}
+.screenshot-list .owl-nav .owl-prev {
+  left: 41%;
+}
+#email {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 auto;
+  padding: 20px 0 20px 20px;
+  width: 100%;
+}
+#button {
+  background: #e5ad04 none repeat scroll 0 0;
+  border: 1px solid #fff;
+  border-radius: 35px;
+  color: #fff;
+  font-family: "Montserrat",sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 10px;
+  padding: 17px;
+  position: inherit;
+  text-transform: uppercase;
+  top: 8px;
+  width: 100%;
+}
+.center-block {
+  width: 23%;
+}
+.center-block a img{
+	margin-bottom:15px;
+}
+.download-section {
+  padding-bottom: 40px;
+}
+.download-btn a {
+  margin: 0 0 16px;
+}
+}
