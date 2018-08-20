@@ -55,7 +55,9 @@ cron.schedule('30 */2 * * * *', function(){
 	update_txid_widthdraw()
 });
 
-
+cron.schedule('0 */4 * * * *', function(){
+  Auto_Confirm_Withdraw();
+});
 
 function update_status_deposit(_id,status,confirmations,callback){
 	var query = {_id:_id};
@@ -331,6 +333,47 @@ function Update_Commision_Finish_async(item, cb){
 			}
 		})*/
 	}, 50);
+}
+
+
+function withdrawWAVE(callback){
+	Withdraw.findOne({$and : [{'status' : 0},{'type' : 'WAVE'}]}, (e, o) => {  
+	    if (e) {
+	        callback(false)
+	    } else {
+	    	if (o) {
+	    		var amount = parseFloat(o.amount)/100000000;
+		    	var wallet = o.wallet;
+		    	STCclient.sendToAddress(wallet, amount, function (err, tx) {		
+					if (err) {
+						callback(false)
+					}else{
+						var querys = {_id: o._id};
+						var data_updates = {
+							$set : {
+								'txid': tx,
+								'status': 1
+							}
+						};
+						Withdraw.update(querys, data_updates, function(err, WithdrawUpdate){
+							callback(true)
+						});
+					}
+				});
+	    	}else{
+	    		callback(false)
+	    	}
+	    	
+	    }
+
+
+	});	
+}
+
+function Auto_Confirm_Withdraw(){
+	withdrawWAVE(function(cb){
+		cb ? console.log('Send Success WAVE') : console.log('Send Fail WAVE')
+	})	
 }
 
 module.exports = {
