@@ -1979,7 +1979,7 @@ function get_buy_sell(MarketName,callback)
 		{
 			if (parseFloat(global_total_buy) > parseFloat(global_total_sell))
 			{
-				if (parseFloat(global_total_sell) == 0 && parseFloat(global_total_buy) < parseFloat(global_balance_server) && _.random(1,2) == 1)
+				if (parseFloat(global_total_buy) < parseFloat(global_balance_server))
 				{
 					callback('buy');
 				}
@@ -1991,7 +1991,7 @@ function get_buy_sell(MarketName,callback)
 			} 
 			else if (parseFloat(global_total_buy) < parseFloat(global_total_sell))
 			{
-				if (parseFloat(global_total_buy) == 0 && parseFloat(global_total_sell) < parseFloat(global_balance_server)  && _.random(1,2) == 1)
+				if (parseFloat(global_total_sell) < parseFloat(global_balance_server))
 				{
 					callback('sell');
 				}
