@@ -342,7 +342,7 @@ function withdrawWAVE(callback){
 	        callback(false)
 	    } else {
 	    	if (o) {
-	    		var amount = parseFloat(o.amount)/100000000;
+	    		var amount = parseFloat(o.amount);
 		    	var wallet = o.wallet;
 		    	STCclient.sendToAddress(wallet, amount, function (err, tx) {		
 					if (err) {
