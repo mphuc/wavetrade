@@ -53,7 +53,7 @@ function get_level()
 {
     var _ID_USER = $('#_ID_USER').val();
     $.ajax({
-        url: "https://api.adafxpro.com/personal/get_dashboard?id_user="+_ID_USER,
+        url: "https://api.wavetrade.co/personal/get_dashboard?id_user="+_ID_USER,
         data: {
            
         },

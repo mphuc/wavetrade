@@ -36,7 +36,7 @@ function Indexmain(req,res){
 function Indexrefferal(req,res){
 
 	request({
-        url: 'https://api.adafxpro.com/personal/json_tree?id_user='+req.user._id,
+        url: 'https://api.wavetrade.co/personal/json_tree?id_user='+req.user._id,
         json: true
     },function(error, response, body) {
     	var new_data = [];
