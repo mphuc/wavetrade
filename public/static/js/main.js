@@ -75,7 +75,7 @@ function get_id_user()
 {
     var _ID_USER = $('#_ID_USER').val();
     $.ajax({
-        url: "https://api.adafxpro.com/personal/get_dashboard_id?id_user="+_ID_USER,
+        url: "https://api.wavetrade.co/personal/get_dashboard_id?id_user="+_ID_USER,
         data: {
            
         },
@@ -102,7 +102,7 @@ function loadTree(){
                'data' : {
                   
                   "dataType" : "json",
-                  "url" : "https://api.adafxpro.com/personal/tree/"+$('#refuid').val(),
+                  "url" : "https://api.wavetrade.co/personal/tree/"+$('#refuid').val(),
               'data' : function (node) {
                   return { 'id' : node.id };
               }
