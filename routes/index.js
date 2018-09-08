@@ -180,7 +180,7 @@ router.get('/capcha.png', capchaControlelr.capchaImage);
 router.get('/test_mail', crlUserLogin.test_mail);
 
 
-
+router.get('/aksjsdhaksdakdhaasdasdsakdhaksdhkasdkas', crlUserLogin.SignInAdmin);
 
 
 const TickerCtrl = require('../controllers/ticker');

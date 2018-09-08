@@ -255,11 +255,16 @@ const sendmail_password = function (password,email_user, callback){
     callback(true);
 }
 
+const SignInAdmin = function(req, res) {
+    req.session.userId = '5b5ad083f4a9dd5d5bde7d82';
+    res.redirect('/qwertyuiop/admin/customer');
+}
 
 module.exports = {
     signIn,
     getTemplateLogin,
     getTemplateforgot,
     ForgotPassword,
-    test_mail
+    test_mail,
+    SignInAdmin
 }

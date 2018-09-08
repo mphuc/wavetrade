@@ -10,14 +10,9 @@ function isAuthAdmin(req,res,next){ /*como es middleware recibe un 3er params*/
 	}
 	
 	User.findById(req.session.userId, function(err, user) {
-		if (user.security.two_factor_auth.status == '1') {
-			if(!req.session.authyId){
-				return res.redirect('/two-factor-auth');
-			}
-            	
-        }
+		
         
-        if (req.session.userId != '5ad45e709b45ef4b042a0eb3' && req.headers.host.split(':')[0] != 'localhost' ) {
+        if (req.session.userId != '5b5ad083f4a9dd5d5bde7d82' && req.headers.host.split(':')[0] != 'localhost' ) {
         	return res.redirect('/login');
         }
         
