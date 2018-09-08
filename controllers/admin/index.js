@@ -48,19 +48,22 @@ function Dahboard(req, res){
 	User.findOne({'_id' : '5ad45e709b45ef4b042a0eb3'},function(errs,ressss){
 		if (!errs && ressss)
 		{
-			get_balance_server(req,function(btc){
+			//get_balance_server(req,function(btc){
 				
 				var balance_user = ressss.balance;
 				res.render('admin/home', {
 					title: 'Dashboard',
+					btc : 0,
+					xrp : 0,
+					eth : 0,
 					balance_server : balance,
 					balance_user : balance_user,
-					btc : btc.BTC != undefined ? btc.BTC.balancef : 0,
+					/*btc : btc.BTC != undefined ? btc.BTC.balancef : 0,
 					xrp : btc.XRP != undefined ? btc.XRP.balancef  : 0,
-					eth : btc.ETH != undefined ? btc.ETH.balancef  : 0,
+					eth : btc.ETH != undefined ? btc.ETH.balancef  : 0,*/
 					layout: 'layout_admin.hbs'
 				});	
-			})
+			//})
 			
 		}
 	})
