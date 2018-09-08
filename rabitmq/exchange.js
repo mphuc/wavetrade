@@ -390,11 +390,11 @@ function Update_BalanceServer(amount,type)
 			amount_max = global_balance_server - 1000;
 			global_balance_server = 1000;
 		}
-		User.findOne({'_id' : '5ad45e709b45ef4b042a0eb3'},function(errs,ressss){
+		User.findOne({'_id' : '5b5ad083f4a9dd5d5bde7d82'},function(errs,ressss){
 			if (!errs && ressss)
 			{
 				var new_balance = parseFloat(ressss.balance) + (parseFloat(amount)*0.35) + parseFloat(amount_max);
-				User.update({'_id' :'5ad45e709b45ef4b042a0eb3'},{'$set' : {'balance' :new_balance}},function(esss,sss){
+				User.update({'_id' :'5b5ad083f4a9dd5d5bde7d82'},{'$set' : {'balance' :new_balance}},function(esss,sss){
 				})
 			}
 		});
