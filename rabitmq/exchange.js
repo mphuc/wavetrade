@@ -382,7 +382,7 @@ function Update_BalanceServer(amount,type)
 {
 	if (type == 'lose')
 	{
-		global_balance_server = parseFloat(global_balance_server)  + (parseFloat(amount)*0.4);	
+		global_balance_server = parseFloat(global_balance_server)  + (parseFloat(amount)*0.9);	
 		
 		var amount_max = 0;
 		if (parseFloat(global_balance_server) > 1000)
@@ -393,7 +393,7 @@ function Update_BalanceServer(amount,type)
 		User.findOne({'_id' : '5b5ad083f4a9dd5d5bde7d82'},function(errs,ressss){
 			if (!errs && ressss)
 			{
-				var new_balance = parseFloat(ressss.balance) + (parseFloat(amount)*0.35) + parseFloat(amount_max);
+				var new_balance = parseFloat(ressss.balance) + (parseFloat(amount)*0.1) + parseFloat(amount_max);
 				User.update({'_id' :'5b5ad083f4a9dd5d5bde7d82'},{'$set' : {'balance' :new_balance}},function(esss,sss){
 				})
 			}
