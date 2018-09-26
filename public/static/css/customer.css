@@ -1437,6 +1437,7 @@ margin-top: 12px;
   }
   #btn-sell-one{
     float: right;
+    right: 0;
   }
   .button_buysell .char-pin{
     width: 100%
@@ -1484,11 +1485,13 @@ margin-top: 12px;
     float: left;
     width: 100%;
     position: relative;
+    height: 45px;
   }
   #btn-buy-one, #btn-sell-one, #btn-buy-tow, #btn-sell-tow {
     max-width: 80px;
         z-index: 9999999;
-    position: relative;
+    position: absolute;
+   
   }
   .bet-amount {
     margin-top: 8px;
