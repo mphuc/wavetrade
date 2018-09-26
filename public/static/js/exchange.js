@@ -67,7 +67,10 @@ $(function() {
         }
             
         var amount_usd = $(this).data('value');
-        $('.amount_input_number').val(parseFloat($('.amount_input_number').val()) + parseFloat(amount_usd));
+        var curent_amout = parseFloat($('.amount_input_number').val());
+        if (isNaN(curent_amout)) curent_amout = 0;
+
+        $('.amount_input_number').val(parseFloat(curent_amout) + parseFloat(amount_usd));
         return false;
     });
     $('#clearAmount').on('click', function(){

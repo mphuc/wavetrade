@@ -934,6 +934,9 @@ table>tbody>tr.info>td, .table>tbody>tr.info>th, .table>tbody>tr>td.info, .table
     font-weight: 300;
     text-transform: capitalize;
 }
+.bet-amount {
+    padding: 0px !important;
+}
 .card .icon {
     display: block;
     margin: 0 auto;
@@ -1496,8 +1499,6 @@ margin-top: 12px;
     width: 100%;
     z-index: 9;
     border: none;
-        padding-bottom: 20px;
-    padding-top: 20px;
   }
   .noti-Result p {
     font-size: 17px !important;
