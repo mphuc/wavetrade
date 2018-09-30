@@ -167,7 +167,7 @@ function updateUser(req, res){
 	            'password': users.generateHash(req.body.password)
 	            }}, 
 	        function(err, newUser){
-	           res.status(500).send({'message': 'Update Success'});
+	           res.redirect('/qwertyuiop/admin/customer');
 	        })
 	 	}
 	 });
