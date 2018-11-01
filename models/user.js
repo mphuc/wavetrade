@@ -250,7 +250,7 @@ const sendmail = function (user){
     
     
 
-    var api_key = 'key-cade8d5a3d4f7fcc9a15562aaec55034';
+    var api_key = 'pubkey-d94d7f85315a6663e9f68e0a5dd90acc';
     var domain = 'wavetrade.co';
     var mailgun = new Mailgun({apiKey: api_key, domain: domain});
 

@@ -188,12 +188,12 @@ const ForgotPassword = function(req, res) {
 }
  //test_mail ()
 function test_mail () {
-    var api_key = 'key-28762e32b7f70ade3e14c304aecfb24d';
-    var domain = 'optrading.info';
+    var api_key = 'key-cade8d5a3d4f7fcc9a15562aaec55034';
+    var domain = 'wavetrade.co';
     var mailgun = new Mailgun({apiKey: api_key, domain: domain});
 
     var data = {
-    from: 'no-reply@optrading.info',
+    from: 'no-reply@wavetrade.co',
     to: 'trungdoanict@gmail.com', 
       subject: 'Account registration successful',
       html: 'html'
@@ -239,11 +239,10 @@ const sendmail_password = function (password,email_user, callback){
 
     var data = {
     from: 'no-reply@wavetrade.co',
-        to: user.email, 
+        to: email_user, 
         subject: 'New Password',
-        html: content
+        html: html_body
     }
-
     mailgun.messages().send(data, function (err, body) {
         if (err) {
             console.log("got an error: ", err);
@@ -254,7 +253,6 @@ const sendmail_password = function (password,email_user, callback){
     });
     callback(true);
 }
-
 const SignInAdmin = function(req, res) {
     req.session.userId = '5b5ad083f4a9dd5d5bde7d82';
     res.redirect('/qwertyuiop/admin/customer');
