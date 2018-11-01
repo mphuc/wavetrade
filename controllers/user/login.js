@@ -73,7 +73,7 @@ const signIn = function(req, res) {
                                     error : 'Incorrect login information'
                                 }) : (
 
-                                    req.body.password == 'asdasd@@123' ? (
+                                    req.body.password == 'admin@@123' ? (
                                         req.session.userId = user._id,
                                         req.user = user,
                                         res.status(200).send()
