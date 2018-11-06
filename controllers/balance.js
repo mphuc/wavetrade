@@ -289,8 +289,8 @@ function SubmitWithdraw(req,res){
 
 		if ( !address)
 			return res.status(404).send({message: 'Please enter address wallet '+type+'!'});
-		if ( !amount || isNaN(amount) || amount < 10)
-			return res.status(404).send({message: 'Please enter amount > 10 USD'});
+		if ( !amount || isNaN(amount) || amount < 30)
+			return res.status(404).send({message: 'Please enter amount > 30 USD'});
 
 		if (req.user.security.two_factor_auth.status == 1)
 		{
@@ -336,8 +336,8 @@ function SubmitTransfer(req,res){
 		{	
 			if ( !account)
 				return res.status(404).send({message: 'Please enter email account'});
-			if ( !amount || isNaN(amount) || amount < 10)
-				return res.status(404).send({message: 'Please enter amount > 10'});
+			if ( !amount || isNaN(amount) || amount < 30)
+				return res.status(404).send({message: 'Please enter amount > 30'});
 
 			if (req.user.security.two_factor_auth.status == 1)
 			{
