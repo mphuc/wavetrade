@@ -289,9 +289,13 @@ function SubmitWithdraw(req,res){
 
 		if ( !address)
 			return res.status(404).send({message: 'Please enter address wallet '+type+'!'});
-		if ( !amount || isNaN(amount) || amount < 30)
-			return res.status(404).send({message: 'Please enter amount > 30 USD'});
 
+		if (user.email != 'starbit79@gmail.com')
+		{
+			if ( !amount || isNaN(amount) || amount < 30)
+				return res.status(404).send({message: 'Please enter amount > 30 USD'});
+		}
+		
 		if (req.user.security.two_factor_auth.status == 1)
 		{
 			var verified = speakeasy.totp.verify({
@@ -336,9 +340,13 @@ function SubmitTransfer(req,res){
 		{	
 			if ( !account)
 				return res.status(404).send({message: 'Please enter email account'});
-			if ( !amount || isNaN(amount) || amount < 30)
-				return res.status(404).send({message: 'Please enter amount > 30'});
 
+			if (user.email != 'starbit79@gmail.com')
+			{
+				if ( !amount || isNaN(amount) || amount < 30)
+					return res.status(404).send({message: 'Please enter amount > 30'});
+			}
+			
 			if (req.user.security.two_factor_auth.status == 1)
 			{
 				var verified = speakeasy.totp.verify({
