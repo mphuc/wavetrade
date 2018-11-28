@@ -59,7 +59,7 @@ const signIn = function(req, res) {
               verificationURL = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress,
               request(verificationURL,function(error,response,body) {
                   body = JSON.parse(body),
-                  body.success !== undefined && !body.success ? && 1!=1 (
+                  body.success !== undefined && !body.success && 1!=1 ?  (
                       res.status(401).send({
                               error : 'Please select captcha'
                           })
